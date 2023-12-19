@@ -1,0 +1,45 @@
+.exit{
+    color: #000000;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 10px;
+    font-weight: 400;
+    left: 44px;
+    letter-spacing: 0.1px;
+    line-height: normal;
+    opacity: 0.4;
+    position: absolute;
+    top: 20px;
+    white-space: nowrap;
+}
+
+.name {
+    letter-spacing: 0.14px;
+    color: #000000;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 14px;
+    font-weight: 400;
+    left: 0;
+    line-height: normal;
+    opacity: 0.7;
+    position: absolute;
+    top: 0;
+}
+
+.box_mask {
+    width: 32px;
+    height: 32px;
+    left: 79px;
+    position: relative;
+    overflow: hidden;
+    top: 0;
+    border-radius: 16px;
+}
+.mask {
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-70px,-20px);
+    width:105px;
+    height:105px;
+    object-fit:cover;
+}
