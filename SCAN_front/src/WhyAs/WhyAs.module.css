@@ -1,0 +1,29 @@
+.unit {
+    background-color: #fff;
+    position: relative;
+    width: 1440px;
+    height: 644px;
+    margin: 60 auto;
+}
+
+.title {
+    color: #000;
+    font-family: Ferry;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    letter-spacing: 0.45px;
+    padding: 69px 60px 0 60px;
+    position: absolute;
+}
+
+.sliderman {
+    width: 1000px;
+    margin: 0 auto;
+    top: 124px;
+}
+
+.sliderman div {
+    text-align: center;
+}

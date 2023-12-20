@@ -1,6 +1,32 @@
 body {
   margin: 0;
   min-width: 320px;
-  min-height: 100vh;
   background-color: gray;
 }
+
+#root {
+  background-color: aqua;
+  width: 1440px;
+  margin: 0 auto;
+}
+
+@font-face {
+  font-family: "Ferry";
+  src: url("public/fonts/Ferry/Ferry-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  }
+
+@font-face {
+  font-family: "Inter-Regular";
+  src: url("public/fonts/Inter/Inter-VariableFont_slnt.ttf");
+  font-weight: 400;
+  font-style: normal;
+  }
+
+@font-face {
+  font-family: "Inter-Medium";
+  src: url("public/fonts/Inter/Inter-VariableFont_slnt.ttf");
+  font-weight: 400;
+  font-style: normal;
+  }

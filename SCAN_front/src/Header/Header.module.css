@@ -14,14 +14,9 @@
     width: 141px;
 }
 .group_menu{
-    display: flex;
-    flex-direction: row;
-    gap: 49px;
-    height: 17px;
     left: 602px;
     position: absolute;
     top: 38px;
-    width: 242px;
 }
 .item_menu{
     color: #000000;
@@ -36,11 +31,9 @@
 }
 
 .limit_section{
-    height: 63px;
     left: 966px;
     position: absolute;
     top: 15px;
-    width: 183px;
 }
 
 .card{
@@ -66,9 +59,10 @@
 
     .limit_section{
         left: 156px;
+        top: 9px;
     }
 
-    .card, .group_menu {
+    .card {
         display: none;
     }
 }

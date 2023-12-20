@@ -1,3 +1,8 @@
+.limit {
+    height: 63px;
+    width: 183px;
+}
+
 .rectangle{
     background-color: #d9d9d9;
     border-radius: 5px;
@@ -60,4 +65,38 @@
     position: absolute;
     top: 31px;
 
+}
+
+@media screen and (max-width: 375px) {
+
+    .limit{
+        height: 75px;
+        width: 132px;
+    }
+
+    .rectangle {
+        height: 75px;
+        width: 132px;
+        position: absolute;
+      }
+    .upper_text{
+        top: 5px;
+        left: 10px;
+        font-size: 8px;
+    }
+    .lower_text{
+        top: 41px;
+        left: 10px;
+        font-size: 8px;
+    }
+    .upper_value{
+        top: 17px;
+        left: 10px;
+        font-size: 14px;
+    }
+    .lower_value{
+        top: 53px;
+        left: 10px;
+        font-size: 14px;
+    }
 }

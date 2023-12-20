@@ -1,0 +1,46 @@
+.unit {
+    background-color: #fff;
+    position: relative;
+    width: 1440px;
+    height: 644px;
+    margin: 60 auto;
+}
+.title {
+    color: #000;
+    font-family: Ferry, Helvetica;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    letter-spacing: 0.6px;
+    width: 743px;
+    margin: 0;
+    padding: 69px 60px 0 60px;
+    position: absolute;
+}
+.text_description {
+    color: #000;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    margin: 0;
+    padding: 24px 60px;
+    top: 353px;
+    letter-spacing: 0.2px;
+}
+.mascot {
+    width: 629px;
+    height: 593px;
+    position: absolute;
+    left: 751px;
+    top: 50px;
+}
+
+.button {
+    margin: 24px 60px;
+    position: absolute;
+    top: 471px;
+}
