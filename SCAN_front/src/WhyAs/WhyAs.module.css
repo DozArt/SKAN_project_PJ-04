@@ -2,7 +2,7 @@
     background-color: #fff;
     position: relative;
     width: 1440px;
-    height: 644px;
+    height: 1100px;
     margin: 60 auto;
 }
 
@@ -19,11 +19,51 @@
 }
 
 .sliderman {
-    width: 1000px;
+    width: 1300px;
     margin: 0 auto;
-    top: 124px;
+    top: 190px;
 }
 
-.sliderman div {
+.item {
+    width: 400px;
+    height: 225px;
+    flex-shrink: 0;
     text-align: center;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.20);
+    position: relative;
+    left: 15px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.item img {
+    width: 65px;
+    height: 65px;
+    position: absolute;
+    top: 22px;
+    left: 19px;
+}
+.item p {
+    width: 359px;
+    text-align: left;
+    font-family: Inter-Regular;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.18px;
+    white-space: pre-wrap;
+    position: absolute;
+    top: 113px;
+    left: 20px;
+    margin: 0;
+}
+
+.mascot_ok {
+    width: 1300;
+    position: absolute;
+    top: 500px;
+    left: 60px;
 }

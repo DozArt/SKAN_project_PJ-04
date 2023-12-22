@@ -12,7 +12,7 @@
     font-weight: normal;
     font-style: normal;
 
-    src: url('./slick.svg') format('svg');
+    src: url('./images/slick.svg') format('svg');
 }
 /* Arrows */
 .slick-prev,
@@ -69,8 +69,8 @@
     font-size: 20px;
     line-height: 1;
 
-    opacity: .75;
-    color: rgb(0, 0, 0);
+    opacity: .2;
+    color: rgb(204, 204, 204);
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -87,7 +87,9 @@
 }
 .slick-prev:before
 {
-    content: url(navigate-before_118889.svg);
+    content: url(images/navigate-before_118889.svg);
+    width: 20px;
+    height: 20px;
 }
 [dir='rtl'] .slick-prev:before
 {
@@ -105,7 +107,9 @@
 }
 .slick-next:before
 {
-    content: url(navigate-next_118888.svg);
+    content: url(images/navigate-next_118888.svg);
+    width: 39px;
+    height: 39px;
 }
 [dir='rtl'] .slick-next:before
 {
