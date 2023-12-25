@@ -3,11 +3,16 @@
     border-radius: 5px;
     height: 59px;
     left: 0;
-    width: 335px;
+    min-width: 335px;
     border-style: none;
     font-size: 22px;
-    letter-spacing: 0.22px;
     color: #FFF;
     font-family: "Inter-Regular", Helvetica;
     cursor: pointer;
+}
+.button:hover{
+    opacity: 0.8;
+}
+.button:active{
+    opacity: 1;
 }

@@ -1,0 +1,27 @@
+.header{
+    background-color: #029491;
+    height: 93px;
+    position: relative;
+    width: 1440px;
+    margin: 0 auto;
+}
+.logo {
+    height: 93px;
+    left: 60px;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 141px;
+}
+
+@media screen and (max-width: 375px) {
+    .logo {
+        height: 93px;
+        left: 14px;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        width: 111px;
+    }
+
+}
