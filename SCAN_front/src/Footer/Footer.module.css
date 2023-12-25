@@ -1,27 +1,44 @@
 .header{
-    background-color: #029491;
-    height: 93px;
-    position: relative;
+    
     width: 1440px;
+    height: 137px;
+    position: relative;
     margin: 0 auto;
+    background: url(../public/images/logo_white.png) no-repeat 0 4px; /* Параметры фона */
+    background-position: 60px -2px;
+    background-size: 141px;
+    background-color: #029491;
 }
 .logo {
-    height: 93px;
-    left: 60px;
     object-fit: cover;
-    position: absolute;
-    top: 0;
     width: 141px;
 }
 
-@media screen and (max-width: 375px) {
-    .logo {
-        height: 93px;
-        left: 14px;
-        object-fit: cover;
-        position: absolute;
-        top: 0;
-        width: 111px;
-    }
+.adress, .copyright {
+    color: #FFF;
+    text-align: right;
+    font-family: Inter-Regular;
+    font-size: 14px;
+}
 
+.adress {
+    padding: 25px 45px 0 0;
+}
+.copyright {
+    padding: 21px 45px 0 0;
+}
+
+@media screen and (max-width: 375px) {
+    .header {
+        width: 375px;
+        background-position: 18px -12px;
+        background-size: 111px;
+    }
+        
+    .adress {
+        padding: 25px 19px 0 0;
+    }
+    .copyright {
+        padding: 21px 19px 0 0;
+    }
 }

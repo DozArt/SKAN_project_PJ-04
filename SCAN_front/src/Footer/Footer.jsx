@@ -1,11 +1,18 @@
 import React from 'react';
 import s from './Footer.module.css'
-import srcLogo from '../public/images/a21cf0e37634bf7f262554f86388e0d5.png';
+import srcLogo from '../public/images/logo_white.png';
 
 const Footer = () => {
     return (
         <header className={s.header}>
-            <img className={s.logo} src={srcLogo} ali='logo' />
+            <div className={s.adress}>
+                г. Москва, Цветной б-р, 40<br />
+                +7 495 771 21 11<br />
+                info@skan.ru
+            </div>
+            <div className={s.copyright} >
+                Copyright. 2022
+            </div>
         </header>
     );
 };
