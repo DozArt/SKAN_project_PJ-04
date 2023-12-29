@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './Rate_item.module.css'
-import Button from '../../components/Button';
+import Button from '../../../components/Button/Button';
 
 
 const Rate = ({card_details}) => {

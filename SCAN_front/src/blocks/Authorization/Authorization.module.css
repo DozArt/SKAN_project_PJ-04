@@ -1,0 +1,30 @@
+.unit {
+    background-color: #fff;
+    position: relative;
+    width: 1440px;
+    height: 672px;
+    margin: 60 auto;
+}
+.title {
+    color: #000;
+    font-family: Ferry, Helvetica;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    letter-spacing: 0.8px;
+    width: 753px;
+    margin: 0;
+    padding: 69px 0px 0 60px;
+}
+
+.form {
+    position: absolute;
+    top: 14px;
+    left: 819px;
+}
+
+.mascot {
+    width: 321px;
+    margin: 14px 0 0 172px;
+}

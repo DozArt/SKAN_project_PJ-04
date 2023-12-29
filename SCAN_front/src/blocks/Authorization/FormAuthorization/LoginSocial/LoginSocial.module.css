@@ -1,0 +1,21 @@
+.unit {
+    position: relative;
+    margin: 0 25px;
+
+    h8{
+        color: #949494;
+        font-family: Inter-Regular;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: 0.32px;
+    }
+}
+
+.social_links {
+    margin: 15px 0;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}

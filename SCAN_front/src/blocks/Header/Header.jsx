@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './Header.module.css'
-import srcLogo from '../public/images/a21cf0e37634bf7f262554f86388e0d5.png';
+import srcLogo from '../../public/images/a21cf0e37634bf7f262554f86388e0d5.png';
 import Card from './Components/Card/Card';
 import Limit from './Components/Limit/Limit';
 import Menu from './Components/Menu/Menu';

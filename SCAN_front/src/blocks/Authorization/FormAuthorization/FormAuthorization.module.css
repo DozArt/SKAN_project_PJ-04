@@ -1,0 +1,96 @@
+.unit {
+    background-color: #ffffff;
+    position: relative;
+    width: 480px;
+    height: 578px;
+    margin: 60px auto;
+}
+
+.navigation {
+    width: 379px;
+    display: flex;
+    flex-direction: row;
+    margin: 15px 25px;
+    gap: 15px;
+}
+
+.navigation button{
+    
+    font-family: Inter-Regular;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.32px;
+    border-width: 0 0 2px 0;
+    border-color: #C7C7C7;
+    border-style: solid;
+    background-color: #ffffff;
+    color: #C7C7C7;
+    height: 38px;
+    padding: 0;
+
+}
+
+.navigation button.select{
+    border-color: #029491;
+    color: #029491;
+}
+
+.link_login {
+    flex-grow: 2;
+}
+
+.link_registration {
+    flex-grow: 1;
+}
+
+.form {
+    width: 429px;
+    height: 523px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.form_authorization {
+    margin: 40px 25px 20px;
+    display: flex;
+    flex-direction: column;
+
+    input {
+        height: 43px;
+        margin-bottom: 5px;
+        padding: 0;
+        border-radius: 5px;
+        border: 1px solid #C7C7C7;
+        background: #FFF;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
+
+    }
+    h4 {
+        color: #949494;
+        font-family: Inter-Regular;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: 0.32px;
+        margin: 15px 0;
+    }
+    .login_button {
+        padding: 0;
+    }
+    button {
+        margin: 25px 0 15px 0;
+    }
+}
+
+.look {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+

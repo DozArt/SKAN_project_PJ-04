@@ -10,9 +10,14 @@
     font-family: "Inter-Regular", Helvetica;
     cursor: pointer;
 }
-.button:hover{
+.button:hover {
     opacity: 0.8;
 }
-.button:active{
+.button:active {
     opacity: 1;
+}
+
+.button:disabled {
+    opacity: 0.5;
+    cursor: no-drop;
 }

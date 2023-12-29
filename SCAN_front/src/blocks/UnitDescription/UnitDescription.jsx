@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './UnitDescription.module.css'
-import imageMascot from '../public/images/image_1.webp'
-import Button from '../components/Button';
+import imageMascot from '../../public/images/image_1.webp'
+import Button from '../../components/Button/Button';
 
 const UnitDescription = () => {
     return (
