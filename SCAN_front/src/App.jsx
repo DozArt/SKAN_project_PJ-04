@@ -6,21 +6,30 @@ import WhyAs from './blocks/WhyAs/WhyAs'
 import Rates from './blocks/Rates/Rates'
 import Footer from './blocks/Footer/Footer'
 import Authorization from './blocks/Authorization/Authorization'
+import Request from './blocks/Request/Request'
+import Result from './Pages/Result/Result'
 
 function App() {
-        return (
-            <>
-                <Header />
-    
-                <Authorization />
-                <Footer />
+    return (
+        <>
+            <Header />
+            {/*
                 
-                <UnitDescription />
-                <WhyAs />
-                <Rates />
-                <Footer />
-            </>
-        )
+            <Authorization />
+            
+            <UnitDescription />
+            <WhyAs />
+            <Rates />
+
+            <Request />
+
+            */}
+
+            <Result />
+            
+            <Footer />
+        </>
+    )
 }
 
 export default App

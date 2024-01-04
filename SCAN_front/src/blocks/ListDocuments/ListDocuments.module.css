@@ -1,0 +1,35 @@
+.unit {
+    background-color: #fff;
+    width: 1320px;
+    margin: 0 auto;
+    padding: 60px;
+}
+
+.title {
+    color: #000;
+    font-family: Ferry;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    letter-spacing: 0.45px;
+    margin: 60px 0;
+}
+.rates {
+    display: flex;
+    justify-content: space-around;
+}
+
+@media screen and (max-width: 375px) {
+    .unit {
+        width: 347px;
+        padding: 55px 14px;
+    }
+    .title {
+        font-size: 28px;
+    }
+    .rates {
+        flex-direction: column;
+        gap: 43px;
+    }
+}

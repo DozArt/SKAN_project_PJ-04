@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './WhyAs.module.css'
-import "./slick.css";
-import "./slick-theme.css";
+import "../../public/style/slick.css";
+import "../../public/style/slick-theme.css";
 import Slider from "react-slick";
 import mascot_ok from "./images/mascot_ok.svg"
 import img_clock from "./images/342eec6c4e64fc1f6123156254eb7dd3.svg"
