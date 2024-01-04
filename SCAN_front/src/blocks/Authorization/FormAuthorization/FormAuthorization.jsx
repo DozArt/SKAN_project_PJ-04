@@ -18,7 +18,7 @@ const FormAuthorization = () => {
                     <h4>Пароль:</h4>
                     <input />
                     <Button className={s.login_button} disabled={true} >Войти</Button>
-                    восстановить пароль
+                    <a href=''>восстановить пароль</a>
                 </div>
                 <LoginSocial />
                 <div className={s.form_registration}>

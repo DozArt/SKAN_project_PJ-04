@@ -1,9 +1,11 @@
 .unit {
     background-color: #fff;
     position: relative;
-    width: 1440px;
+    width: 1320px;
     height: 644px;
-    margin: 60 auto;
+    margin: 0 auto;
+    padding: 55px 60px;
+    display: flex;
 }
 .title {
     color: #000;
@@ -15,8 +17,7 @@
     letter-spacing: 0.6px;
     width: 743px;
     margin: 0;
-    padding: 69px 60px 0 60px;
-    position: absolute;
+    padding: 0;
 }
 .text_description {
     color: #000;
@@ -25,22 +26,50 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    position: absolute;
     margin: 0;
-    padding: 24px 60px;
-    top: 353px;
+    padding: 24px 0px;
     letter-spacing: 0.2px;
 }
 .mascot {
-    width: 629px;
+    width: 570px;
     height: 593px;
-    position: absolute;
-    left: 751px;
-    top: 50px;
+    object-fit:cover;
 }
 
 .button {
-    margin: 24px 60px;
-    position: absolute;
-    top: 471px;
+    margin: 24px 0px;
+    width: 335px;
+}
+
+@media screen and (max-width: 375px) {
+    .title {
+        width: 361px;
+        font-size: 28px;
+        position:relative;
+        left: 0;
+        top: 0;
+    }
+    .unit {
+        flex-direction: column;
+        width: 347px;
+        padding: 55px 14px;
+        height: auto;
+    }
+    .text_description {
+        position: relative;
+        left: 0;
+        top: 0;
+    }
+    .mascot {
+        width: 347px;
+        height: auto;
+        position:relative;
+        left: 0;
+        top: 0;
+    }
+    .button {
+        position: relative;
+        top: 0;
+        left: 0;
+    }
 }

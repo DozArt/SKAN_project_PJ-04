@@ -1,7 +1,7 @@
 .button {
     background-color: #5970ff;
     border-radius: 5px;
-    height: 59px;
+    min-height: 59px;
     left: 0;
     min-width: 335px;
     border-style: none;
@@ -20,4 +20,11 @@
 .button:disabled {
     opacity: 0.5;
     cursor: no-drop;
+}
+
+@media screen and (max-width: 375px) {
+    .button {
+        min-width: 286px;
+        font-size: 20px;
+    }
 }

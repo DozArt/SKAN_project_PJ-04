@@ -6,11 +6,21 @@
     margin: 60px auto;
 }
 
+.form {
+    width: 429px;
+    height: 523px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
 .navigation {
     width: 379px;
     display: flex;
     flex-direction: row;
-    margin: 15px 25px;
+    margin: 15px auto;
     gap: 15px;
 }
 
@@ -29,12 +39,13 @@
     color: #C7C7C7;
     height: 38px;
     padding: 0;
-
+    cursor: pointer;
 }
 
 .navigation button.select{
     border-color: #029491;
     color: #029491;
+    cursor: auto;
 }
 
 .link_login {
@@ -43,16 +54,6 @@
 
 .link_registration {
     flex-grow: 1;
-}
-
-.form {
-    width: 429px;
-    height: 523px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
-    position: absolute;
-    right: 0;
-    bottom: 0;
 }
 
 .form_authorization {
@@ -86,6 +87,15 @@
     button {
         margin: 25px 0 15px 0;
     }
+    a{
+        align-self: center;
+        font-family: Inter-Regular;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: 0.28px;
+    }
 }
 
 .look {
@@ -94,3 +104,27 @@
     left: 0;
 }
 
+
+@media screen and (max-width: 375px) {
+    .unit {
+        width: 335px;
+        height: 585px;
+    }
+    .form {
+        width: 335px;
+        height: 504px;
+    }
+    .look {
+        left: 81px;
+    }
+    .form_authorization {
+        margin: 40px 15px 20px;
+    }
+    .navigation {
+        width: 305px;
+
+        button {
+            font-size: 16px;
+        }
+    }
+}

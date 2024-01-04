@@ -1,9 +1,10 @@
 .unit {
     background-color: #fff;
     position: relative;
-    width: 1440px;
+    width: 1320px;
     height: 672px;
-    margin: 60 auto;
+    margin: 0 auto;
+    padding: 0 60px;
 }
 .title {
     color: #000;
@@ -15,7 +16,7 @@
     letter-spacing: 0.8px;
     width: 753px;
     margin: 0;
-    padding: 69px 0px 0 60px;
+    padding: 69px 0px 0 0px;
 }
 
 .form {
@@ -27,4 +28,29 @@
 .mascot {
     width: 321px;
     margin: 14px 0 0 172px;
+}
+
+@media screen and (max-width: 375px) {
+    .unit {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        width: 347px;
+        padding: 0 14px;
+    }
+    .form {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 335px;
+    }
+    .title {
+        font-size: 22px;
+        width: 385px;
+        padding: 31px 0 0 0;
+    }
+    .mascot {
+        margin: 14px 0 0 0;
+        width: 335px;
+    }
 }

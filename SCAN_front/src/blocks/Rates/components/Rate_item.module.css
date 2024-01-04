@@ -90,6 +90,7 @@
         background-size: 20px;
         font-family: Inter-Regular;
         font-size: 18px;
+        font-weight: 400;
     }
 
     .rate_button {
@@ -185,5 +186,52 @@
     }
     .item_title {
         background-color: #7CE3E1;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .item {
+        width: 335px;
+        height: 512px;
+    }
+    .item_title {
+        width: 335px;
+        h3 {
+            font-size: 20px;
+        }
+        p {
+            font-size: 18px;
+        }
+        img {
+            width: 59px;
+            left: 271px;
+        }
+    }
+    .item_content {
+        width: 307px;
+        height: 382px;
+        padding-left: 24px;
+
+        h4 {
+            font-size: 18px;
+        }
+        p {
+            width: 273px;
+        }
+        li {
+            font-size: 16px;
+        }
+        .rate_button {
+            width: 280px;
+            margin-top: 39px;
+        }
+    }
+    .activ .valid {
+        display: none;
+    }
+
+    .price {
+        padding-top: 20px;
+        gap: 10px;
     }
 }

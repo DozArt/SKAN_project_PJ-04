@@ -1,9 +1,10 @@
 .unit {
     background-color: #fff;
     position: relative;
-    width: 1440px;
+    width: 1320px;
     height: 1100px;
     margin: 0 auto;
+    padding: 60px;
 }
 
 .title {
@@ -14,14 +15,16 @@
     font-weight: 900;
     line-height: normal;
     letter-spacing: 0.45px;
-    padding: 69px 60px 0 60px;
+    padding: 69px 0px 0 0px;
     position: absolute;
 }
 
 .sliderman {
-    width: 1300px;
+    width: 1440px;
     margin: 0 auto;
     top: 190px;
+    left: -60px;
+    padding: 0 0px;
 }
 
 .item {
@@ -33,7 +36,7 @@
     background: #FFF;
     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.20);
     position: relative;
-    left: 15px;
+    left: 38px;
     margin-bottom: 20px;
     margin-top: 20px;
 }
@@ -41,9 +44,7 @@
 .item img {
     width: 65px;
     height: 65px;
-    position: absolute;
-    top: 22px;
-    left: 19px;
+    padding: 22px 0 0 19px;
 }
 .item p {
     width: 359px;
@@ -55,15 +56,53 @@
     line-height: normal;
     letter-spacing: 0.18px;
     white-space: pre-wrap;
-    position: absolute;
-    top: 113px;
-    left: 20px;
     margin: 0;
+    padding: 20px;
 }
 
 .mascot_ok {
-    width: 1300;
     position: absolute;
+    width: 1310px;
+    height: 576px;
     top: 500px;
     left: 60px;
+    object-fit:cover;
+    background-image: url(./images/mascot_ok.svg);
+    background-size:cover;
+}
+
+@media screen and (max-width: 375px) {
+    .unit {
+        width: 343px;
+        padding: 16px;
+    }
+    .title {
+        font-size: 28px;
+        width: 300px;
+    }
+    .sliderman {
+        width: 375px;
+        left: -16px;
+    }
+    .item {
+        width: 298px;
+        margin: 20px 0;
+        padding: 0;
+        left: 37px;
+        img {
+            padding-left: 15px;
+        }
+        p {
+            width: 290px;
+            padding: 20px 10px;
+        }
+
+    }
+    .mascot_ok {
+        width: 360px;
+        height: 390px;
+        left: 15px;
+        
+
+    }
 }

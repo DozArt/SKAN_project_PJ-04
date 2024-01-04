@@ -1,8 +1,7 @@
 .unit {
     background-color: #fff;
     width: 1320px;
-    height: 1100px;
-    margin: 60 auto;
+    margin: 0 auto;
     padding: 60px;
 }
 
@@ -19,4 +18,18 @@
 .rates {
     display: flex;
     justify-content: space-around;
+}
+
+@media screen and (max-width: 375px) {
+    .unit {
+        width: 347px;
+        padding: 55px 14px;
+    }
+    .title {
+        font-size: 28px;
+    }
+    .rates {
+        flex-direction: column;
+        gap: 43px;
+    }
 }

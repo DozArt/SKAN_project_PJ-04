@@ -1,0 +1,1 @@
+export const SCREEN_SM = 375;
