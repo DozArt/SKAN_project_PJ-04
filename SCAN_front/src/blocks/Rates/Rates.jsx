@@ -60,7 +60,7 @@ const Rates = () => {
             <h2 className={s.title}>наши тарифы</h2>
             <div className={s.rates}>
                 {rates.map(arg => (
-                    <Rate_item card_details = {arg} />
+                    <Rate_item key={arg.title} card_details = {arg} />
                 ))}
             </div>
             

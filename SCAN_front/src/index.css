@@ -36,3 +36,37 @@ body {
     width: 375px;
   }
 }
+
+h1, h2, h3, h4 {
+  font-family: "Ferry";
+}
+
+h5 {
+  color: #000;
+  font-family: Inter-Regular;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.52px;
+  margin: 0;
+}
+
+p {
+  color: #000;
+  font-family: Inter-Regular;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.32px;
+}
+
+@media screen and (max-width: 375px) {
+  h5 {
+    font-size: 19px;
+  }
+  p {
+    font-size: 12px;
+  }
+}

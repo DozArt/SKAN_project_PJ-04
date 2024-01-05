@@ -12,13 +12,15 @@ const Rate = ({card_document}) => {
     } = card_document;
 
     return (
-        <div className={s.item}>
-            <div className={s.item_title}>
-                <h3>{title}</h3>
-                <p>{comment}</p>
-            </div> 
-            <div className={s.item_content + (activ ? " " + s.activ : "")}>
+        <div key={title} className={s.item}>
+            <div>13.09.2021 Комсомольская правда KP.RU</div>
+            <h5>{title}</h5>
+            <div>Тхнические новости</div>
+            <div></div>
+            <p>{comment}</p>
+            <div>
                 <Button className={s.rate_button}>Подробнее</Button>
+                <div>3 233 слова</div>
             </div>
             
         </div>

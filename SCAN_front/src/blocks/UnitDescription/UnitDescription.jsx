@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import s from './UnitDescription.module.css'
 import imageMascot from '../../public/images/image_1.webp'
 import Button from '../../components/Button/Button';
@@ -17,9 +18,11 @@ const UnitDescription = () => {
                     Комплексный анализ публикаций, получение данных<br />
                     в формате PDF на электронную почту.
                 </p>
-                <Button className={s.button}>
-                    Запросить данные
-                </Button>
+                <Link to="/search" >
+                    <Button className={s.button} >
+                        Запросить данные
+                    </Button>
+                </Link>
             </div>
             <img className={s.mascot} src={imageMascot} />
         </div>

@@ -15,9 +15,10 @@
     letter-spacing: 0.45px;
     margin: 60px 0;
 }
-.rates {
+.ListDocuments {
     display: flex;
-    justify-content: space-around;
+    flex-direction: row;
+    gap: 38px;
 }
 
 @media screen and (max-width: 375px) {
