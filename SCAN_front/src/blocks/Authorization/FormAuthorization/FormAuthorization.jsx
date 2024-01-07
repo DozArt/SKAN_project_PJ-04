@@ -3,6 +3,7 @@ import s from './FormAuthorization.module.css';
 import img_look from './images/Group 1171274237.svg'
 import Button from '../../../components/Button/Button';
 import LoginSocial from './LoginSocial/LoginSocial';
+import { Link } from 'react-router-dom';
 
 const FormAuthorization = () => {
     const [login, setLogin] = useState('')
@@ -58,8 +59,8 @@ const FormAuthorization = () => {
         <div className={s.unit}>
             <div className={s.form}>
                 <div className={s.navigation}>
-                    <button className={s.link_login + ' ' + s.select}>Войти</button>
-                    <button className={s.link_registration}>Зарегистрироваться</button>
+                    <Link to='/authorization' className={s.link_login + ' ' + s.select}><div>Войти</div></Link>
+                    <Link to='/registration' className={s.link_registration}><div>Зарегистрироваться</div></Link>
                 </div>
                 <div className={s.form_authorization}>
                     <h4>Логин или номер телефона:</h4>
@@ -82,7 +83,11 @@ const FormAuthorization = () => {
                         placeholder='Пароль'
                     />
                     {(passwordDitry && passwordError) && <div>{passwordError}</div>}
-                    <Button className={s.login_button} disabled={!validation} >Войти</Button>
+                    <button
+                        onClick={() => console.log(login)}
+                        className={s.login_button}
+                        disabled={!validation}
+                    >Войти</button>
                     <a href=''>восстановить пароль</a>
                 </div>
                 <LoginSocial />
