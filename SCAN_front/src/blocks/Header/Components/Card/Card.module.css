@@ -10,6 +10,7 @@
     position: absolute;
     top: 20px;
     white-space: nowrap;
+    cursor: pointer;
 }
 
 .name {
