@@ -7,15 +7,42 @@ export default class Store {
 
     isAuth = false
 
-
     inn = ''
     tonality = ''
     limit = ''
     startDate = ''
     endDate = ''
 
+    maxFullness = false
+    inBusinessNews = false
+    onlyMainRole = false
+    onlyWithRiskFactors = false
+    includeTechNews = false
+    includeAnnouncements = false
+    includeDigests = false
+
+    setAuth(bool) {
+        this.isAuth = bool;
+    }
+
     setInn(value){
         this.inn = value
+    }
+
+    setTonality(value){
+        this.tonality = value
+    }
+
+    setLimit(value){
+        this.limit = value
+    }
+
+    setStartDate(value){
+        this.startDate = value
+    }
+
+    setEndDate(value){
+        this.EndDate = value
     }
 
     setLocalDataRequest(item, data) {
@@ -23,6 +50,34 @@ export default class Store {
         console.log('setLocal')
     }
 
+    setCheck(e) {
+        const value = e.target.checked
+        const name = e.target.name
+        
+        switch (name) {
+            case 'maxFullness':
+                this.maxFullness = value
+                break
+            case 'inBusinessNews':
+                this.inBusinessNews = value
+                break
+            case 'onlyMainRole':
+                this.onlyMainRole = value
+                break
+            case 'onlyWithRiskFactors':
+                this.onlyWithRiskFactors = value
+                break
+            case 'includeTechNews':
+                this.includeTechNews = value
+                break
+            case 'includeAnnouncements':
+                this.includeAnnouncements = value
+                break
+            case 'includeDigests':
+                this.includeDigests = value
+                break
+        }
+    }
 
     eventFiltersInfo = {
         "usedCompanyCount": 0,
@@ -34,9 +89,7 @@ export default class Store {
         makeAutoObservable(this);
     }
 
-    setAuth(bool) {
-        this.isAuth = bool;
-    }
+    
 
     setFiltersInfo(data) {
         this.eventFiltersInfo = data
@@ -111,8 +164,8 @@ export default class Store {
                 body: JSON.stringify(
                     {
                         issueDateInterval: {
-                            startDate: new Date(request.startDate).toISOString(),
-                            endDate: new Date(request.endDate).toISOString(),
+                            startDate: new Date(this.startDate).toISOString(),
+                            endDate: new Date(this.endDate).toISOString(),
                         },
                         searchContext: {
                             targetSearchEntitiesContext: {
@@ -121,13 +174,13 @@ export default class Store {
                                         type: "company",
                                         sparkId: null,
                                         entityId: null,
-                                        inn: request.inn,
+                                        inn: this.inn,
                                         maxFullness: request.maxFullness,
                                         inBusinessNews: request.inBusinessNews,
                                     }
                                 ],
                                 onlyMainRole: request.onlyMainRole,
-                                tonality: request.tonality,
+                                tonality: this.tonality,  // tonality
                                 onlyWithRiskFactors: request.onlyWithRiskFactors,
                                 riskFactors: {
                                     and: [],

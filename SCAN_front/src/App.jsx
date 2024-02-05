@@ -1,17 +1,20 @@
 import { useContext, useEffect, useState } from 'react'
-import s from './App.module.css'
-import {Routes, Route, Link} from 'react-router-dom'
-import Header from './blocks/Header/Header'
-import UnitDescription from './blocks/UnitDescription/UnitDescription'
-import WhyAs from './blocks/WhyAs/WhyAs'
-import Rates from './blocks/Rates/Rates'
-import Footer from './blocks/Footer/Footer'
-import Authorization from './blocks/Authorization/Authorization'
-import Request from './blocks/Request/Request'
-import Result from './Pages/Result/Result'
-import { Context } from './main'
 import { observer } from 'mobx-react-lite'
+import {Routes, Route, Link} from 'react-router-dom'
+import { Context } from './main'
+import s from './App.module.css'
 import PrivateRoute from './privateRoute'
+
+import Header from './components/Header'
+import Footer from './components/Footer'
+import Authorization from './components/Authorization'
+import Request from './components/Request'
+import UnitDescription from './components/UnitDescription'
+import WhyAs from './components/WhyAs'
+import Rates from './components/Rates'
+import WeAreLooking from './components/WeAreLooking'
+import Summary from './components/Summary'
+import ListDocuments from './components/ListDocuments'
 
 function App() {
     const {store} = useContext(Context)
@@ -32,7 +35,7 @@ function App() {
                 <Route path="/authorization" element={<Authorization />} />
                 <Route path="/" element={<PrivateRoute  />}>
                     <Route path="search" element={<Request />} />
-                    <Route path="result" element={<Result />} />
+                    <Route path="result" element={<><WeAreLooking /><Summary /><ListDocuments /></>} />
                 </Route>
 
             </Routes>
