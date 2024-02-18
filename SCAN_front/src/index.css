@@ -62,7 +62,7 @@ p {
   letter-spacing: 0.32px;
 }
 
-button {
+button.button {
   background-color: #5970ff;
   border-radius: 5px;
   min-height: 59px;

@@ -17,7 +17,8 @@
 }
 .table_summary {
     display: flex;
-    margin-left: 30px ;
+    padding-left: 30px ;
+    position: relative;
 
 }
 .items_titles {
@@ -46,6 +47,16 @@
     padding: 0 0px;
     border-radius: 0 10px 10px 0;
     border: 2px solid #029491;
+
+    .slick-prev
+    {
+        left: -160px;
+    }
+
+    .slick-next
+    {
+        right: -30px;
+    }
 }
 
 .item {

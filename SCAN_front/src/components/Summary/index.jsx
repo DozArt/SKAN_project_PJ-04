@@ -2,7 +2,6 @@ import React from 'react';
 import s from './Summary.module.css'
 import "../../public/style/slick.css";
 import "../../public/style/slick-theme.css";
-import "./slick-theme2.css";
 import Slider from "react-slick";
 import useResize from '../Resize/use-resize';
 
@@ -67,7 +66,7 @@ const Summary = () => {
 
                     <Summary_item id="7"
                                 text="10.09.2021" />
-
+                                
                     <Summary_item id="8"
                                 text="10.09.2021" />
 

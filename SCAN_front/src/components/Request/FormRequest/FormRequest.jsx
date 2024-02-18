@@ -3,11 +3,44 @@ import s from './FormRequest.module.css';
 import Button from 'comp/Button';
 import { Context } from '@/main'
 import { observer } from 'mobx-react-lite'
+import Input from '../../Input';
+
 
 const FormRequest = () => {
     const {store} = useContext(Context)
     const [start_date, setStart_date] = useState('')
     const [end_date, setEnd_date] = useState('')
+
+    const inputs = [
+        {   name: 'maxFullness',
+            description: 'Признак максимальной полноты',
+            defaultChecked: store.maxFullness,
+        },
+        {   name: 'inBusinessNews',
+            description: 'Упоминания в бизнес-контексте',
+            defaultChecked: store.inBusinessNews,
+        },
+        {   name: 'onlyMainRole',
+            description: 'Главная роль в публикации',
+            defaultChecked: store.onlyMainRole,
+        },
+        {   name: 'onlyWithRiskFactors',
+            description: 'Публикации только с риск-факторами',
+            defaultChecked: store.onlyWithRiskFactors,
+        },
+        {   name: 'includeTechNews',
+            description: 'Включать технические новости рынков',
+            defaultChecked: store.includeTechNews,
+        },
+        {   name: 'includeAnnouncements',
+            description: 'Включать анонсы и календари',
+            defaultChecked: store.includeAnnouncements,
+        },
+        {   name: 'includeDigests',
+            description: 'Включать сводки новостей',
+            defaultChecked: store.includeDigests,
+        },
+    ]
 
     const [state, setState] = useState({
         inn: '',
@@ -177,61 +210,14 @@ const FormRequest = () => {
                         {(state.start_dateDitry && state.end_dateDitry && state.dateError) && <div>{state.dateError}</div>}
                     </div>
                     <div className={s.checkboxes}>
-                        <label>
-                            <input  onClick={e => store.setCheck(e)}  // label только на текст
-                                    type="checkbox" 
-                                    name='maxFullness' 
-                                    defaultChecked = {store.maxFullness} />
-                            Признак максимальной полноты
-                        </label>
 
-                        <label>
-                            <input  onClick={e => store.setCheck(e)} 
-                                    type="checkbox" 
-                                    name='inBusinessNews' 
-                                    defaultChecked = {store.inBusinessNews} />
-                            Упоминания в бизнес-контексте
-                        </label>
-
-                        <label>
-                            <input  onClick={e => store.setCheck(e)} 
-                                    type="checkbox" 
-                                    name='onlyMainRole' 
-                                    defaultChecked = {store.onlyMainRole} />
-                            Главная роль в публикации
-                        </label>
-
-                        <label>
-                            <input  onClick={e => store.setCheck(e)} 
-                                    type="checkbox" 
-                                    name='onlyWithRiskFactors' 
-                                    defaultChecked = {store.onlyWithRiskFactors} />
-                            Публикации только с риск-факторами
-                        </label>
-
-                        <label>
-                            <input  onClick={e => store.setCheck(e)} 
-                                    type="checkbox" 
-                                    name='includeTechNews' 
-                                    defaultChecked = {store.includeTechNews} />
-                            Включать технические новости рынков
-                        </label>
-
-                        <label>
-                            <input  onClick={e => store.setCheck(e)} 
-                                    type="checkbox" 
-                                    name='includeAnnouncements' 
-                                    defaultChecked = {store.includeAnnouncements} />
-                            Включать анонсы и календари
-                        </label>
-
-                        <label>
-                            <input  onClick={e => store.setCheck(e)} 
-                                    type="checkbox" 
-                                    name='includeDigests' 
-                                    defaultChecked = {store.includeDigests} />
-                            Включать сводки новостей
-                        </label>
+                        {inputs.map(arg => (
+                            <Input  key={arg.name}
+                                    name={arg.name}  // он же id и for
+                                    description={arg.description} 
+                                    defaultChecked={arg.defaultChecked} 
+                                    onClick={e => store.setCheck(e)}/>
+                        ))}
                         
                         <Button className={s.search_button} disabled={state.disableButton} >Поиск</Button>
                         <p>* Обязательные к заполнению поля</p>

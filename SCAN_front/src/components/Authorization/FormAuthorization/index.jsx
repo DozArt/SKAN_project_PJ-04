@@ -87,7 +87,7 @@ const FormAuthorization = () => {
                     {(passwordDitry && passwordError) && <div>{passwordError}</div>}
                     <button
                         onClick={() => store.handleLogin(login, password)}
-                        className={s.login_button}
+                        className={s.button}
                         disabled={!validation}
                     >Войти</button>
                     <a href=''>восстановить пароль</a>

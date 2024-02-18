@@ -1,0 +1,30 @@
+.button {
+    background-color: #5970ff;
+    border-radius: 5px;
+    min-height: 59px;
+    left: 0;
+    min-width: 335px;
+    border-style: none;
+    font-size: 22px;
+    color: #FFF;
+    font-family: "Inter-Regular", Helvetica;
+    cursor: pointer;
+}
+.button:hover {
+    opacity: 0.8;
+}
+.button:active {
+    opacity: 1;
+}
+
+.button:disabled {
+    opacity: 0.5;
+    cursor: no-drop;
+}
+
+@media screen and (max-width: 375px) {
+    .button {
+        min-width: 286px;
+        font-size: 20px;
+    }
+}
