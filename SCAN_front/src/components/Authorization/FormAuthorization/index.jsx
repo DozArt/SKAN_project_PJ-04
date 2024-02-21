@@ -3,7 +3,10 @@ import s from './FormAuthorization.module.css';
 import img_look from './images/Group 1171274237.svg'
 import LoginSocial from 'comp/LoginSocial';
 import { Link } from 'react-router-dom';
-import { Context } from '../../../main';
+import { Context } from '@/main';
+import Button from '../../Button';
+import Test from '../../../public/images/test_form.png';
+import InputText from '../../InputText';
 
 const FormAuthorization = () => {
     const [login, setLogin] = useState('')
@@ -65,41 +68,32 @@ const FormAuthorization = () => {
                     <Link to='/registration' className={s.link_registration}><div>Зарегистрироваться</div></Link>
                 </div>
                 <div className={s.form_authorization}>
-                    <h4>Логин или номер телефона:</h4>
-                    <input 
-                        onBlur={e => blurHandler(e)}
-                        onChange={e => emailHandler(e)}
-                        name='login'
-                        value={login}
-                        type='text'
-                        placeholder='Логин'
-                    />
-                    {(loginDitry && loginError) && <div>{loginError}</div>}
-                    <h4>Пароль:</h4>
-                    <input 
-                        onBlur={e => blurHandler(e)}
-                        onChange={e => passwordHandler(e)}
-                        name='password'
-                        value={password}
-                        type='password'
-                        placeholder='Пароль'
-                    />
-                    {(passwordDitry && passwordError) && <div>{passwordError}</div>}
-                    <button
-                        onClick={() => store.handleLogin(login, password)}
-                        className={s.button}
-                        disabled={!validation}
-                    >Войти</button>
-                    <a href=''>восстановить пароль</a>
+
+                    <InputText  label='Логин или номер телефона:'
+                                name='login' 
+                                value={login}
+                                errorMesage={loginError}
+                                onChange={e => emailHandler(e)
+                    }/>
+
+                    <InputText  label='Пароль:'
+                                typePass='true'
+                                name='password' 
+                                value={password}
+                                errorMesage={passwordError}
+                                onChange={e => passwordHandler(e)
+                    }/>
+                    <Button onClick={() => store.handleLogin(login, password)}
+                            className={s.button}
+                            disabled={!validation}>
+                        Войти
+                    </Button>
+                    <a href=''>Восстановить пароль</a>
                 </div>
                 <LoginSocial />
-                <div className={s.form_registration}>
-
-                </div>
             </div>
             
             <img className={s.look} src={img_look} />
-            
         </div>
     );
 };

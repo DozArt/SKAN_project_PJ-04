@@ -1,6 +1,6 @@
 .unit {
     position: relative;
-    margin: 0 25px;
+    margin: 0;
 
     h6{
         color: #949494;
@@ -10,18 +10,13 @@
         font-weight: 400;
         line-height: normal;
         letter-spacing: 0.32px;
+        margin: 30px 0 0;
     }
 }
 
 .social_links {
-    margin: 15px 0;
+    margin: 13px 0 15px;
     display: flex;
     flex-direction: row;
     gap: 10px;
-}
-
-@media screen and (max-width: 375px) {
-    .unit {
-        margin: 0 15px;
-    }
 }

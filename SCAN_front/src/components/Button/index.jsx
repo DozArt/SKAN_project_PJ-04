@@ -7,7 +7,7 @@ const Button = ({className, children, disabled = false, onClick}) => {
         <button 
             className={className + ' ' + s.button} 
             disabled={disabled}
-            onClick={() => console.log(onClick)}
+            onClick={onClick}
         >
             {children}
         </button>

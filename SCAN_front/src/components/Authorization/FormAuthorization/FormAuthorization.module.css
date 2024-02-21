@@ -1,27 +1,27 @@
 .unit {
     background-color: #ffffff;
-    position: relative;
     width: 480px;
-    height: 578px;
-    margin: 60px auto;
+    height: 560px;
+    margin: 10px auto;
 }
 
 .form {
-    width: 429px;
-    height: 523px;
+    width: 379px;
+
     border-radius: 10px;
     box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
     position: absolute;
     right: 0;
     bottom: 0;
+    padding: 25px 25px;
 }
 
 .navigation {
     width: 379px;
     display: flex;
     flex-direction: row;
-    margin: 15px auto;
-    gap: 15px;
+    margin: 0px;
+    gap: 8px;
 }
 
 .navigation a{
@@ -32,7 +32,7 @@
     border-color: #C7C7C7;
     border-style: solid;
     color: #C7C7C7;
-    height: 24px;
+    height: 27px;
     padding: 0;
     cursor: pointer;
     text-decoration: none;
@@ -46,7 +46,7 @@
 }
 
 .link_login {
-    flex-grow: 2;
+    flex-grow: 3;
 }
 
 .link_registration {
@@ -54,30 +54,18 @@
 }
 
 .form_authorization {
-    margin: 40px 25px 20px;
-    display: flex;
-    flex-direction: column;
+    margin: 25px 0px;
+    
 
-    input {
-        height: 43px;
-        margin-bottom: 5px;
-        padding: 0;
-        border-radius: 5px;
-        border: 1px solid #C7C7C7;
-        background: #FFF;
-        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
 
-    }
-    h4 {
-        color: #949494;
+    .pass_error_mesage {
+        color: rgb(255, 89, 89);
+        text-align: center;
         font-family: Inter-Regular;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        letter-spacing: 0.32px;
-        margin: 15px 0;
+        font-size: 14px;
+        height: 0;
     }
+
     .login_button {
         padding: 0;
     }
@@ -97,8 +85,8 @@
 
 .look {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0px;
+    left: 0px;
 }
 
 
@@ -108,14 +96,16 @@
         height: 585px;
     }
     .form {
-        width: 335px;
-        height: 504px;
+        width: 305px;
+        height: 454px;
+        padding: 25px 15px;
+        right: auto;
+        bottom: auto;
+        top: 126px;
     }
     .look {
         left: 81px;
-    }
-    .form_authorization {
-        margin: 40px 15px 20px;
+        top: 45px;
     }
     .navigation {
         width: 305px;
@@ -125,3 +115,4 @@
         }
     }
 }
+

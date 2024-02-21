@@ -3,7 +3,7 @@ import s from './FormRequest.module.css';
 import Button from 'comp/Button';
 import { Context } from '@/main'
 import { observer } from 'mobx-react-lite'
-import Input from '../../Input';
+import Input from '../../InputCheckbox';
 
 
 const FormRequest = () => {
