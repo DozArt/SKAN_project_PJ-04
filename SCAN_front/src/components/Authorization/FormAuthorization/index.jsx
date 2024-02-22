@@ -11,8 +11,6 @@ import InputText from '../../InputText';
 const FormAuthorization = () => {
     const [login, setLogin] = useState('')
     const [password, setPassword] = useState('')
-    const [loginDitry, setLoginDitry] = useState(false)
-    const [passwordDitry, setPasswordDitry] = useState(false)
     const [loginError, setLoginError] = useState('Введите корректные данные')
     const [passwordError, setPasswordError] = useState('Неправильный пароль')
     const [validation, setValidation] = useState(false)
@@ -26,17 +24,6 @@ const FormAuthorization = () => {
             setValidation(true)
         }
     }, [loginError, passwordError])
-
-    const blurHandler = (e) => {
-        switch (e.target.name) {
-            case 'login':
-                setLoginDitry(true)
-                break
-            case 'password':
-                setPasswordDitry(true)
-                break
-        }
-    }
 
     const emailHandler = (e) => {
         setLogin(e.target.value)
@@ -88,6 +75,7 @@ const FormAuthorization = () => {
                             disabled={!validation}>
                         Войти
                     </Button>
+                    
                     <a href=''>Восстановить пароль</a>
                 </div>
                 <LoginSocial />

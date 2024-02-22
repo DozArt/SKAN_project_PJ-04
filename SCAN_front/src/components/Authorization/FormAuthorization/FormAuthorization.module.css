@@ -55,16 +55,8 @@
 
 .form_authorization {
     margin: 25px 0px;
-    
-
-
-    .pass_error_mesage {
-        color: rgb(255, 89, 89);
-        text-align: center;
-        font-family: Inter-Regular;
-        font-size: 14px;
-        height: 0;
-    }
+    display: flex;
+    flex-direction: column;
 
     .login_button {
         padding: 0;
