@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import s from './style.module.css'
 
 const Input = ({description, name, defaultChecked, disabled = false, onClick}) => {

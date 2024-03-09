@@ -5,8 +5,8 @@ body {
 }
 
 #root {
-  background-color: aqua;
-  width: 1440px;
+  background-color: white;
+  max-width: 1440px;
   margin: 0 auto;
 }
 

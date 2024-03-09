@@ -1,33 +1,22 @@
 .header{
     background-color: #fff;
     height: 93px;
-    position: relative;
-    width: 1440px;
-    margin: 0 auto;
+    
+    max-width: 1440px;
+    margin: 0 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between
 }
+
 .logo {
     height: 93px;
-    left: 60px;
     object-fit: cover;
-    position: absolute;
-    top: 0;
     width: 141px;
 }
-.group_menu{
-    left: 602px;
-    position: absolute;
-    top: 38px;
-}
-.item_menu{
-    color: #000000;
-    font-family: "Inter-Regular", Helvetica;
-    font-size: 14px;
-    font-weight: 400;
-    left: 0;
-    letter-spacing: 0.14px;
-    line-height: normal;
-    top: 0;
 
+.group_menu{
+    align-self: center;
 }
 
 .limit_section{
@@ -45,17 +34,14 @@
 }
 
 .authorization {
-    width: 251px;
-    position: absolute;
-    left: 1129px;
-    top: 38px;
     color: #000;
     font-family: Inter-Regular;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    letter-spacing: 0.14px;
+    align-self: center;
+    align-items: end;
 }
 
 @media screen and (max-width: 375px) {
@@ -68,15 +54,25 @@
         width: 111px;
     }
     .header {
-        width: 375px;
+        width: 347px;
+        margin: 0 14px;
+        justify-content: flex-end;
     }
-
+    .group_menu{
+        left: 0px;
+        position: absolute;
+        top: 0px;
+        z-index: 99;
+    }
     .limit_section{
         left: 156px;
         top: 9px;
     }
 
     .card {
+        display: none;
+    }
+    .authorization {
         display: none;
     }
 }

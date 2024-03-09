@@ -7,6 +7,7 @@ import Menu from './components/Menu/Menu';
 import Authorization from './components/Authorization/Authorization';
 import { Context } from '../../main'
 import { observer } from 'mobx-react-lite'
+import BurgerMenu from './components/BurgerMenu/BurgerMenu';
 
 const Header = () => {
     const {store} = useContext(Context)
@@ -14,21 +15,19 @@ const Header = () => {
     return (
         <header className={s.header}>
             <img className={s.logo} src={srcLogo} ali='logo' />
-            <Menu className={s.group_menu}/>
+            <div className={s.group_menu}><Menu/></div>
 
             {store.isAuth ? 
                 <>
                     <Card className={s.card} />
                     <Limit className={s.limit_section} data={store.eventFiltersInfo}/>
                 </> : 
-                <Authorization className={s.authorization} />
-                }
-
-            
-            {/* 
-            
-            
-            */}
+                <div className={s.authorization} >
+                    <Authorization />
+                </div>
+                
+            }
+            <BurgerMenu />
             
         </header>
     );

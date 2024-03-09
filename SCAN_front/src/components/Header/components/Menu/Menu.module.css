@@ -3,8 +3,6 @@
     display: flex;
     flex-direction: row;
     gap: 49px;
-    height: 17px;
-    position: absolute;
     width: 242px;
 }
 .item_menu{
@@ -12,10 +10,7 @@
     font-family: "Inter-Regular", Helvetica;
     font-size: 14px;
     font-weight: 400;
-    left: 0;
-    letter-spacing: 0.14px;
     line-height: normal;
-    top: 0;
 }
 
 .iconMenu{
@@ -25,8 +20,7 @@
 
 
 @media screen and (max-width: 375px) {
-    .group_menu{
-        display: none;
+    .group_menu, .group_menu_active{
         flex-direction: column;
         height: 494px;
         width: 375px;
@@ -34,7 +28,8 @@
         position: absolute;
         top: 93px;
         gap: 26px;
-        background-color: #029491;
+        display: none;
+        
     }
     .item_menu{
         color: #ffffff;
@@ -49,6 +44,16 @@
         display: block;
         position: absolute;
         left: 319px;
-        top: -60px;
+        top: 30px;
     }
+    .group_menu {
+        background-color: #029491;;
+        transition: background-color 1s ease-in-out;
+    }
+    .group_menu_active{
+        background-color: white;
+        transition: background-color 1s ease-in-out;
+        display: none;
+    }
+
 }

@@ -7,7 +7,7 @@ import Button from '../Button';
 const UnitDescription = () => {
     return (
         <div className={s.unit}>
-            <div>
+            <div className={s.content}>
                 <h1 className={s.title}>
                     сервис по поиску<br />
                     публикаций<br />
@@ -24,7 +24,10 @@ const UnitDescription = () => {
                     </Button>
                 </Link>
             </div>
-            <img className={s.mascot} src={imageMascot} />
+            <div className={s.img}>
+                <img className={s.mascot} src={imageMascot} />
+            </div>
+            
         </div>
     );
 };

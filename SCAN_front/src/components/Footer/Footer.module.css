@@ -1,6 +1,7 @@
-.header{
-    
-    width: 1440px;
+.footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
     height: 137px;
     position: relative;
     margin: 0 auto;
@@ -29,7 +30,7 @@
 }
 
 @media screen and (max-width: 375px) {
-    .header {
+    .footer {
         width: 375px;
         background-position: 18px -12px;
         background-size: 111px;
