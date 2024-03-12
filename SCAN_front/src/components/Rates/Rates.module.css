@@ -1,6 +1,5 @@
 .unit {
     background-color: #fff;
-    width: 1320px;
     margin: 0 auto;
     padding: 60px;
 }
@@ -17,7 +16,8 @@
 }
 .rates {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    gap: 30px;
 }
 
 @media screen and (max-width: 375px) {

@@ -69,8 +69,11 @@ const WhyAs = () => {
                             text="Защита конфеденциальных сведений, не подлежащих разглашению по федеральному законодательству" />
 
             </Slider>
-            <div></div>
-            <div className={s.mascot_ok}/>
+            
+            {/* <div className={s.mascot_ok}/> */}
+            <div className={s.img}>
+                <img className={s.mascot} src={mascot_ok} />
+            </div>
         </div>
     );
 };

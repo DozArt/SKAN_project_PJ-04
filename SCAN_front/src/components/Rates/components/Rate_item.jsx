@@ -23,26 +23,30 @@ const Rate = ({card_details}) => {
     return (
         <div className={s.item + ' ' + s[color]}>
             <div className={s.item_title}>
-                <h3>{title}</h3>
-                <p>{comment}</p>
+                <div className={s.left}>
+                    <h3>{title}</h3>
+                    <p>{comment}</p>
+                </div>
                 <img src={icon} />
             </div> 
             <div className={s.item_content + (activ ? " " + s.activ : "")}>
-                <div className={s.valid}>Текущий тариф</div>
-                <div className={s.price}>
-                    <div className={s.price_new}>{new_price_str} ₽</div>
-                    <div className={s.price_old}>{old_price_str} ₽</div>
+                <div>
+                    <div className={s.valid}>Текущий тариф</div>
+                    <div className={s.price}>
+                        <div className={s.price_new}>{new_price_str} ₽</div>
+                        <div className={s.price_old}>{old_price_str} ₽</div>
+                    </div>
+                    
+                    <p>{text_addition}</p>
+                    <h4>В тариф входит:</h4>
+                    <ul>
+                        {includes.map(item => (
+                            <li key={item}>
+                                {item}
+                            </li>
+                        ))}
+                    </ul>
                 </div>
-                
-                <p>{text_addition}</p>
-                <h4>В тариф входит:</h4>
-                <ul>
-                    {includes.map(item => (
-                        <li key={item}>
-                            {item}
-                        </li>
-                    ))}
-                </ul>
                 <Button className={s.rate_button}>Подробнее</Button>
             </div>
             

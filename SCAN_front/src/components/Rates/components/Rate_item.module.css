@@ -1,28 +1,38 @@
 
 .item {
-    width: 415px;
-    height: 540px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 415px;
+    min-width: 100px;
+    /* min-height: 540px; */
     border-radius: 10px;
     box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.20);
+    flex-grow: 1;
 }
 
 .item_title {
-    width: 415px;
-    height: 132px;
+    display: flex;
+    height: 92px;
     flex-shrink: 0;
     border-radius: 10px 10px 0px 0px;
     background-color: #FFB64F;
     position: relative;
+    padding: 30px 10px 10px 30px;
+    justify-content: space-between;
+
+    .left{
+        display: flex;
+        flex-direction: column;
+    }
 
     h3 {
         font-family: Inter-Regular;
         font-size: 30px;
-        font-style: normal;
         font-weight: 500;
-        line-height: normal;
         letter-spacing: 0.3px;
         margin: 0;
-        padding: 30px 0 10px 30px;
+        /* padding: 30px 0 10px 30px; */
     }
 
     p {
@@ -33,24 +43,25 @@
         line-height: normal;
         letter-spacing: 0.18px;
         margin: 0;
-        padding: 0 0 0 28px;
+        /* padding: 0 0 0 28px; */
     }
 
     img {
         width: 90px;
-        top: 10px;
-        left: 310px;
-        position: absolute;
     }
 }
 
 .item_content {
-    width: 385px;
-    height: 410px;
+    /* width: 385px; */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* height: 410px; */
     background: #FFF;
     position: relative;
     border-radius: 0 0 10px 10px;
-    padding-left: 30px;
+    padding: 33px 30px ;
 
     h4 {
         color: #000;
@@ -95,16 +106,17 @@
 
     .rate_button {
         margin-top: 50px;
-        width: 355px;
+        /* width: 355px; */
+
     }
 }
 
 .activ {
-    width: 381px;
-    height: 408px;
+    /* width: 381px; */
+    /* height: 408px; */
     border: 2px solid #FFB64F;
     border-top: 0px;
-
+    padding-top: 12px;
     .rate_button {
         background: #D2D2D2;
         color: #000;
@@ -130,15 +142,12 @@
     height: 24px;
     text-align: center;
     line-height: 24px;
-    position: absolute;
-    right: 10px;
-    top: 12px;
 }
 
 .price {
     display: flex;
     gap: 19px;
-    padding: 33px 0 0px 0;
+    padding: 0;
 }
 .price_new {
     color: #000;

@@ -2,11 +2,13 @@ import { useState, useEffect } from 'react';
 import {SCREEN_SM} from './const-breakpoints';
 
 const useResize = () => {
-  const [width, setWidth] = useState(window.screen.width);
+  // innerWidth - ширина страницы
+  // window.screen.width - ширина монитора
+  const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     const handleResize = (event) => {
-      setWidth(event.target.screen.width);
+      setWidth(event.target.innerWidth);
     };
     window.addEventListener('resize', handleResize);
     return () => {

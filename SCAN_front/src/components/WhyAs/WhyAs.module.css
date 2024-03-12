@@ -3,7 +3,7 @@
     position: relative;
     height: 1100px;
     margin: 0 auto;
-    padding: 60px;
+    padding: 60px 0;
 }
 
 .title {
@@ -14,11 +14,11 @@
     font-weight: 900;
     line-height: normal;
     letter-spacing: 0.45px;
-    padding: 69px 0px 0 0px;
+    padding: 69px 60px 0 60px;
 }
 
 .sliderman {
-
+    padding: 0 60px;
     margin: 0 auto;
     top: 240px;
     display: flex;
@@ -63,16 +63,34 @@
     padding: 20px;
 }
 
-.mascot_ok {
+.img{
+    /* min-width: 421px;
+    max-width: 629px; */
+    height: 540px;
+    margin: 70px 0 0 60px;
+}
+
+.mascot {
+    width: 100%;
+    min-height: 390px;
+    /* min-width: 421px; */
+    max-width: 1307px;
+    object-fit: cover;
+    object-position: 0 0;
+}
+
+
+
+/* .mascot_ok {
     position: absolute;
-    width: 1310px;
+    width: 100%;
     height: 576px;
     top: 600px;
     left: 60px;
     object-fit:cover;
     background-image: url(./images/mascot_ok.svg);
     background-size:cover;
-}
+} */
 
 @media screen and (max-width: 375px) {
     .unit {
