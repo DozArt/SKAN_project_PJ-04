@@ -1,18 +1,19 @@
 .header{
     background-color: #fff;
     height: 93px;
-    
     max-width: 1440px;
     margin: 0 60px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between
+    justify-content: space-between;
+    /* align-items: center; */
 }
 
 .logo {
     height: 93px;
     object-fit: cover;
     width: 141px;
+    min-width: 141px;
 }
 
 .group_menu{
@@ -20,17 +21,12 @@
 }
 
 .limit_section{
-    left: 966px;
-    position: absolute;
-    top: 15px;
+    margin: 9px 0 0 0;
 }
 
 .card{
     height: 32px;
-    left: 1269px;
-    position: absolute;
-    top: 30px;
-    width: 115px;
+    width: 120px;
 }
 
 .authorization {
@@ -47,16 +43,13 @@
 @media screen and (max-width: 375px) {
     .logo {
         height: 93px;
-        left: 14px;
         object-fit: cover;
-        position: absolute;
-        top: 0;
         width: 111px;
     }
     .header {
         width: 347px;
         margin: 0 14px;
-        justify-content: flex-end;
+        justify-content: space-between;
     }
     .group_menu{
         left: 0px;
@@ -65,8 +58,8 @@
         z-index: 99;
     }
     .limit_section{
-        left: 156px;
-        top: 9px;
+        margin: 9px 87px 0 0;
+
     }
 
     .card {

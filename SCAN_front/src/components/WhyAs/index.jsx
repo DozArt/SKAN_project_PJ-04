@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './WhyAs.module.css'
+
 import "../../public/style/slick.css";
 import "../../public/style/slick-theme.css";
 import Slider from "react-slick";
@@ -9,6 +9,7 @@ import img_search from "./images/0fb8f25cf4a72c55c77ade958e46a450.svg"
 import img_security from "./images/png-transparent-computer-icons.svg"
 import useResize from '../Resize/use-resize';
 
+import s from './WhyAs.module.css'
 
 const WhyAs_item = ({id, icon, text}) => {
     return (

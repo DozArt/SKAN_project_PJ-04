@@ -1,7 +1,8 @@
 import {useContext} from 'react';
-import s from './Header.module.css'
 import srcLogo from '../../public/images/a21cf0e37634bf7f262554f86388e0d5.png';
 import Card from './components/Card/Card';
+import s from './Header.module.css'
+
 import Limit from './components/Limit/Limit';
 import Menu from './components/Menu/Menu';
 import Authorization from './components/Authorization/Authorization';
@@ -19,13 +20,12 @@ const Header = () => {
 
             {store.isAuth ? 
                 <>
-                    <Card className={s.card} />
                     <Limit className={s.limit_section} data={store.eventFiltersInfo}/>
+                    <Card className={s.card} />
                 </> : 
                 <div className={s.authorization} >
                     <Authorization />
                 </div>
-                
             }
             <BurgerMenu />
             

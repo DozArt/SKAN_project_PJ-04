@@ -1,1 +1,1 @@
-export const SCREEN_SM = 375;
+export const SCREEN_SM = 800;

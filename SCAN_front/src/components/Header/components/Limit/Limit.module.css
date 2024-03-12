@@ -1,102 +1,74 @@
 .limit {
-    height: 63px;
-    width: 183px;
-}
-
-.rectangle{
-    background-color: #d9d9d9;
+    background-color: #f4f4f4;
     border-radius: 5px;
     height: 63px;
-    left: 0;
-    opacity: 0.3;
-    position: absolute;
-    top: 0;
-    width: 175px;
+    min-width: 165px;
+    padding: 5px;
+
 }
 
-.upper_text{
+.row_upper {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    justify-content: flex-end;
+    margin-top: 9px;
+}
+
+.row_lower {
+    display: flex;
+    margin-top: 7px;
+    align-items: center;
+    gap: 9px;
+    justify-content: flex-end;
+}
+
+.upper_text, .lower_text{
     color: #000000;
     font-family: "Inter-Regular", Helvetica;
     font-size: 10px;
     font-weight: 400;
-    left: 10px;
-    letter-spacing: 0.1px;
-    line-height: normal;
     opacity: 0.4;
-    position: absolute;
-    top: 14px;
-    white-space: nowrap;
+    padding-top: 1px;
 }
 
-.lower_text{
-    color: #000000;
-    font-family: "Inter-Regular", Helvetica;
-    font-size: 10px;
-    font-weight: 400;
-    left: 27px;
-    letter-spacing: 0.1px;
-    line-height: normal;
-    opacity: 0.4;
-    position: absolute;
-    top: 33px;
-    white-space: nowrap;
-}
-
-.upper_value{
+.upper_value, .lower_value{
+    width: 30px;
     color: #000000;
     font-family: "Inter-Bold", Helvetica;
     font-size: 14px;
     font-weight: 700;
-    letter-spacing: 0.14px;
-    line-height: normal;
-    position: absolute;
-    top: 12px;
-    left: 140px;
-
+    margin-top: 2px
 }
+
 .lower_value{
     color: #8ac540;
-    font-family: "Inter-Bold", Helvetica;
-    font-size: 14px;
-    font-weight: 700;
-    left: 140px;
-    letter-spacing: 0.14px;
-    line-height: normal;
-    position: absolute;
-    top: 31px;
-
 }
+
 
 @media screen and (max-width: 375px) {
 
     .limit{
-        height: 75px;
-        width: 132px;
+        min-width: 112px;
+        height: 65px;
+        padding: 5px 10px;
     }
-
-    .rectangle {
-        height: 75px;
-        width: 132px;
-        position: absolute;
-      }
+    .row_upper, .row_lower {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        margin: 0;
+    }
     .upper_text{
-        top: 5px;
-        left: 10px;
         font-size: 8px;
     }
     .lower_text{
-        top: 41px;
-        left: 10px;
         font-size: 8px;
     }
     .upper_value{
-        top: 17px;
-        left: 10px;
         font-size: 14px;
     }
     .lower_value{
-        top: 53px;
-        left: 10px;
         font-size: 14px;
     }
 }

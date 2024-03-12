@@ -1,10 +1,8 @@
-.group_menu{
-    display: flex;
-    flex-direction: row;
-    gap: 49px;
-    width: 242px;
-    
-
+.group_menu, .group_menu_active{
+    display: none;
+}
+.top_line, .items_menu, .bottom_line{
+    display: none;
 }
 
 .hamburger_menu {
@@ -41,8 +39,7 @@
 
 
 @media screen and (max-width: 375px) {
-    .background, .background_active{
-        height: 100vh;
+    .group_menu, .group_menu_active{
         width: 375px;
         position: absolute;
         display: flex;
@@ -79,7 +76,7 @@
             left:50%;
             transform:translate(-50%,-50%);
             object-fit:cover;
-            opacity: 1;
+            opacity: 0;
             transition: opacity 0.3s ease-in-out;
         }
     }
@@ -104,18 +101,45 @@
         line-height: normal;
         white-space: nowrap;
     }
+
+    .bottom_line {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 60px;
+        gap: 20px;
+    }
     .iconMenu{
         display: block;
         position: absolute;
         left: 319px;
         top: 30px;
     }
-    .background {
+    .button {
+        width: 295px;
+        height: 51.96px;
+        background-color: #7CE3E1;
+        border-radius: 5px;
+        border-style: none;
+        font-size: 20px;
+        font-family: "Inter-Regular", Helvetica;
+        cursor: pointer;
+    }
 
-        .logo_white, .items_menu {
+    .link_registration {
+        color: rgb(121, 186, 185);
+        font-family: "Inter-Regular";
+        font-size: 16px;
+        font-weight: 400;
+    }
+    .group_menu {
+
+        .logo_white,
+        .items_menu,
+        .bottom_line {
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.3s ease-in-out, visibility 0.3s linear 0.3s;
+            transition: opacity 0.3s ease-out, visibility 0.3s linear 0.3s;
 
         }
         .back {
@@ -123,19 +147,21 @@
             transition: width 0.3s ease-in-out;
         }
     }
-    .background_active{
+    .group_menu_active{
         .hamburger_menu span {
             background-color: #ffffff;
         }        
-        .items_menu, .items_menu{
+        .items_menu,
+        .logo_white,
+        .bottom_line{
             visibility: visible;
-            transition: visibility 0.3s ease-in-out;
+            transition: visibility 0.3s ease-in;
             opacity: 1;
-            transition: opacity 0.3s ease-in-out;
+            transition: opacity 0.3s ease-in;
         }
         .back {
             width: 375px;;
-            transition: width 0.3s ease-in-out;
+            transition: width 0.3s ease-out;
         }
         .hamburger_menu span:nth-child(2) {
             transform: rotate(45deg);

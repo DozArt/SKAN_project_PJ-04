@@ -50,13 +50,15 @@
 
 .slick-track
 {
-    position: relative;
+    /* position: relative;
     top: 0;
-    left: 0;
-
-    display: block;
+    left: 0; */
+    min-width: 100px;
+    display: flex;
+    /* gap: 30px; */
     margin-left: auto;
     margin-right: auto;
+
 }
 .slick-track:before,
 .slick-track:after

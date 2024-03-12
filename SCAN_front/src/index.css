@@ -93,7 +93,7 @@ button:disabled {
   p {
     font-size: 12px;
   }
-  button {
+  button.button {
     min-width: 286px;
     font-size: 20px;
   }
