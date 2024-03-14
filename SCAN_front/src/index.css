@@ -1,3 +1,7 @@
+:root {
+  --padding-value: 60px; /* поля */
+}
+
 body {
   margin: 0;
   min-width: 320px;
@@ -39,6 +43,13 @@ body {
 
 h1, h2, h3, h4 {
   font-family: "Ferry";
+}
+
+h1 {
+  font-size: 60px;
+}
+h2 {
+  font-size: 45px;
 }
 
 h5 {
@@ -86,7 +97,24 @@ button:disabled {
   cursor: no-drop;
 }
 
+@media screen and (max-width: 600px) {
+  :root {
+    --padding-value: 30px; /* поля */
+  }
+  h1 {
+    font-size: 40px;
+  }
+  h2 {
+    font-size: 34px;
+  }
+}
 @media screen and (max-width: 375px) {
+  :root {
+    --padding-value: 14px; /* поля */
+  }
+  h1 {
+    font-size: 28px;
+  }
   h5 {
     font-size: 19px;
   }

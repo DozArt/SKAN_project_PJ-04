@@ -9,16 +9,16 @@
 .title {
     color: #000;
     font-family: Ferry;
-    font-size: 45px;
+    /* font-size: 45px; */
     font-style: normal;
     font-weight: 900;
     line-height: normal;
     letter-spacing: 0.45px;
-    padding: 69px 60px 0 60px;
+    padding: 69px var(--padding-value) 0;
 }
 
 .sliderman {
-    padding: 0 60px;
+    padding: 0 var(--padding-value);
     margin: 0 auto;
     top: 240px;
     display: flex;
@@ -31,7 +31,7 @@
 }
 
 .item {
-    /* width: 400px; */
+    min-width: 288px;
     height: 225px;
     flex-shrink: 0;
     text-align: center;

@@ -2,7 +2,7 @@
     background-color: #fff;
     height: 93px;
     max-width: 1440px;
-    margin: 0 60px;
+    padding: 0 var(--padding-value);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -13,7 +13,7 @@
     height: 93px;
     object-fit: cover;
     width: 141px;
-    min-width: 141px;
+    /* min-width: 141px; */
 }
 
 .group_menu{
@@ -39,7 +39,14 @@
     align-self: center;
     align-items: end;
 }
-
+@media screen and (max-width: 800px) {
+    .authorization{
+        display: none;
+    }
+    .group_menu {
+        display: none;
+    }
+}
 @media screen and (max-width: 375px) {
     .logo {
         height: 93px;
@@ -48,7 +55,7 @@
     }
     .header {
         width: 347px;
-        margin: 0 14px;
+        padding: 0 var(--padding-value);
         justify-content: space-between;
     }
     .group_menu{

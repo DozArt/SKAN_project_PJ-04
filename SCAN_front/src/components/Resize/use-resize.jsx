@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import {SCREEN_SM} from './const-breakpoints';
+import {SCREEN_SM, SCREEN_M} from './const-breakpoints';
 
 const useResize = () => {
   // innerWidth - ширина страницы
@@ -19,6 +19,7 @@ const useResize = () => {
   return {
     width,
     isScreenSm: width > SCREEN_SM,
+    isScreenM: width > SCREEN_M,
   };
 };
 

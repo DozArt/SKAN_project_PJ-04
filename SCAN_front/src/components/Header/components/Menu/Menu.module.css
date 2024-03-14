@@ -2,8 +2,10 @@
 .group_menu{
     display: flex;
     flex-direction: row;
-    gap: 49px;
+    /* gap: 49px; */
     width: 242px;
+    justify-content: space-between;
+    margin: 10px 20px 10px 10px;
 }
 .item_menu{
     color: #000000;
@@ -18,42 +20,14 @@
 }
 
 
+@media screen and (max-width: 800px) {
+    .group_menu{
+        width: 200px;
+    }
+}
 
 @media screen and (max-width: 375px) {
-    .group_menu, .group_menu_active{
-        flex-direction: column;
-        height: 494px;
-        width: 375px;
-        left: 0px;
-        position: absolute;
-        top: 93px;
-        gap: 26px;
-        display: none;
-        
-    }
-    .item_menu{
-        color: #ffffff;
-        font-family: "Inter-Regular", Helvetica;
-        font-size: 16px;
-        font-weight: 400;
-        letter-spacing: 0.16px;
-        line-height: normal;
-        white-space: nowrap;
-    }
-    .iconMenu{
-        display: block;
-        position: absolute;
-        left: 319px;
-        top: 30px;
-    }
-    .group_menu {
-        background-color: #029491;;
-        transition: background-color 1s ease-in-out;
-    }
-    .group_menu_active{
-        background-color: white;
-        transition: background-color 1s ease-in-out;
+    .group_menu{
         display: none;
     }
-
 }

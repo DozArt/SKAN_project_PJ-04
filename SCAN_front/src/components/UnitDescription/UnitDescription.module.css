@@ -23,7 +23,6 @@
 .title {
     color: #000;
     font-family: Ferry, Helvetica;
-    font-size: 60px;
     font-style: normal;
     font-weight: 900;
     line-height: normal;
@@ -66,15 +65,11 @@
     .unit{
         padding: 55px 0 55px 30px;
     }
-    .title{
-        font-size: 40px;
-    }
     
 } 
 @media screen and (max-width: 375px) {
     .title {
         width: 361px;
-        font-size: 28px;
         position:relative;
         left: 0;
         top: 0;

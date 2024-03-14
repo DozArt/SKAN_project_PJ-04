@@ -18,8 +18,14 @@
     display: flex;
     justify-content: space-between;
     gap: 30px;
+    
 }
-
+@media screen and (max-width: 1000px) {
+    .rates {
+        flex-direction: column;
+        align-items: center;
+    }
+}
 @media screen and (max-width: 375px) {
     .unit {
         width: 347px;
