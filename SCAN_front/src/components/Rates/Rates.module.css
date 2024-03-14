@@ -1,18 +1,18 @@
 .unit {
     background-color: #fff;
     margin: 0 auto;
-    padding: 60px;
+    padding: var(--padding-value);
 }
 
 .title {
     color: #000;
     font-family: Ferry;
-    font-size: 45px;
+
     font-style: normal;
     font-weight: 900;
     line-height: normal;
     letter-spacing: 0.45px;
-    margin: 60px 0;
+    margin: var(--padding-value) 0;
 }
 .rates {
     display: flex;
@@ -29,11 +29,9 @@
 @media screen and (max-width: 375px) {
     .unit {
         width: 347px;
-        padding: 55px 14px;
+        padding: 55px var(--padding-value);
     }
-    .title {
-        font-size: 28px;
-    }
+
     .rates {
         flex-direction: column;
         gap: 43px;

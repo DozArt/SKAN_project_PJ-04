@@ -112,7 +112,7 @@ button:disabled {
   :root {
     --padding-value: 14px; /* поля */
   }
-  h1 {
+  h1, h2 {
     font-size: 28px;
   }
   h5 {
