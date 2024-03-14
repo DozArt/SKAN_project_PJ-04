@@ -32,7 +32,7 @@
 
 .item {
     /* min-width: 288px; */
-    min-height: 225px;
+    min-height: 188px;
     flex-shrink: 0;
     text-align: center;
     border-radius: 10px;
@@ -67,7 +67,7 @@
     /* min-width: 421px;
     max-width: 629px; */
     height: 540px;
-    margin: 70px 0 0 60px;
+    margin: 70px 0 0 var(--padding-value);
 }
 
 .mascot {

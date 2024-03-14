@@ -205,7 +205,7 @@
 
 @media screen and (max-width: 375px) {
     .item {
-        width: 335px;
+        /* width: 335px; */
         height: 512px;
     }
     .item_title {

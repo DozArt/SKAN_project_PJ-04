@@ -41,6 +41,7 @@
 @media screen and (max-width: 800px) {
     .group_menu, .group_menu_active{
         width: 100%;
+        min-width: 375px;
         position: absolute;
         display: flex;
         flex-direction: column;
@@ -65,13 +66,13 @@
         .box {
             position: relative;
             overflow:hidden;
-            width:111px;
+            width:141px;
             height:93px;
-            margin-left: 14px;
+            margin-left: var(--padding-value);
         }
         .logo_white{
             position: absolute;
-            width: 111px;
+            width: 141px;
             top:50%;
             left:50%;
             transform:translate(-50%,-50%);
@@ -174,4 +175,14 @@
         }
     }
 
+}
+@media screen and (max-width: 375px) {
+    .top_line{
+        .box {
+            width:111px;
+        }
+        .logo_white{
+            width: 111px;
+        }
+    }
 }
