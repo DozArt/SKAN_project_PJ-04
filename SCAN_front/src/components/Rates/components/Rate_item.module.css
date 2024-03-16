@@ -142,8 +142,12 @@
     height: 24px;
     text-align: center;
     line-height: 24px;
+    
 }
-
+.valid_div {
+    display: flex;
+    justify-content: flex-end;
+}
 .price {
     display: flex;
     gap: 19px;
@@ -239,7 +243,7 @@
         }
     }
     .activ .valid {
-        display: none;
+        /* display: none; */
     }
 
     .price {

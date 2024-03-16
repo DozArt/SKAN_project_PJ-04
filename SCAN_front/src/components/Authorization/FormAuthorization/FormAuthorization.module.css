@@ -1,23 +1,22 @@
 .unit {
     background-color: #ffffff;
-    width: 480px;
-    height: 560px;
+    max-width: 429px;
+    width: 100%;
+    /* height: 560px; */
     margin: 10px auto;
+    align-self: center;
 }
 
 .form {
-    width: 379px;
+    /* width: 379px; */
 
     border-radius: 10px;
     box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
-    position: absolute;
-    right: 0;
-    bottom: 0;
     padding: 25px 25px;
 }
 
 .navigation {
-    width: 379px;
+    /* width: 379px; */
     display: flex;
     flex-direction: row;
     margin: 0px;
@@ -76,16 +75,20 @@
 }
 
 .look {
-    position: absolute;
-    top: 0px;
-    left: 0px;
+    transform: translate(-50px,40px);
 }
 
+@media screen and (max-width: 600px) {
+    .look {
+        transform: translate(90px,20px);
+    }
 
-@media screen and (max-width: 375px) {
+}
+
+@media screen and (max-width: 400px) {
     .unit {
-        width: 335px;
-        height: 585px;
+        min-width: 335px;
+        /* height: 585px; */
     }
     .form {
         width: 305px;

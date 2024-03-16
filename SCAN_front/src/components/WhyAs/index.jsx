@@ -52,7 +52,6 @@ const WhyAs = () => {
     return (
         <div className={s.unit}>
             <h2 className={s.title}>Почему именно&nbsp;мы</h2>
-            <div className={s.space}></div>
             <Slider {...settings}>
 
                 <WhyAs_item id="1"

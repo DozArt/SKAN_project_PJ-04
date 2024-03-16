@@ -1,0 +1,22 @@
+.login_unit {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.rectangle {
+    width: 2px;
+    height: 26px;
+    background: rgb(2, 148, 145);
+    opacity: 0.6;
+    margin: 0 20px 0 18px;
+}
+.button_registratiom {
+    opacity: 0.4;
+}
+.button_login {
+    width: 65px;
+    height: 26px;
+    border-radius: 5px;
+    background: rgb(124, 227, 225);
+    border: 0;
+}

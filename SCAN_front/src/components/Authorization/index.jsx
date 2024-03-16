@@ -7,11 +7,7 @@ const Authorization = () => {
     return (
         <div className={s.unit}>
             
-            <h1 className={s.title}>
-            Для оформления подписки <br />
-            на тариф, необходимо<br />
-            авторизоваться.<br />
-            </h1>
+            <h3 className={s.title}>Для оформления подписки на тариф, необходимо авторизоваться.</h3>
             <div className={s.form} >
                 <FormAuthorization />
             </div>

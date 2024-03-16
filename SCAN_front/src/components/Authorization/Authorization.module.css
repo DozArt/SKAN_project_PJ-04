@@ -1,51 +1,63 @@
 .unit {
     background-color: #fff;
-    position: relative;
-    width: 1320px;
-    height: 672px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction:column;
     margin: 0 auto;
-    padding: 0 60px;
+    padding: 0 var(--padding-value);
+    min-height: 672px;
+    max-height: 900px;
 }
 .title {
     color: #000;
-    font-family: Ferry, Helvetica;
-    font-size: 40px;
-    font-style: normal;
     font-weight: 900;
-    line-height: normal;
     letter-spacing: 0.8px;
-    width: 753px;
     margin: 0;
     padding: 69px 0px 0 0px;
+    width: 50%;
 }
 
 .form {
-    position: absolute;
-    top: 14px;
-    left: 819px;
+    order: 1;
+    display: flex;
 }
 
 .mascot {
     width: 321px;
-    margin: 14px 0 0 172px;
+    margin: 14px;
+    align-self: center;
 }
+@media screen and (max-width: 1000px) {
+    .form {
+        order: 0;
+        align-self: stretch;
 
+    }
+    .unit {
+        max-height: none;
+    }
+    .title {
+        width: auto;
+    }
+}
+@media screen and (max-width: 390px) {
+    .unit {
+        padding: 0 14px;
+    }
+}
 @media screen and (max-width: 375px) {
     .unit {
         height: auto;
-        display: flex;
-        flex-direction: column;
         width: 347px;
-        padding: 0 14px;
+        padding: 0 var(--padding-value);
     }
     .form {
         position: relative;
-        top: auto;
-        left: auto;
         width: 335px;
+        height: 750px;
+        display: flex;
     }
     .title {
-        font-size: 22px;
         width: 360px;
         padding: 31px 0 0 0;
     }

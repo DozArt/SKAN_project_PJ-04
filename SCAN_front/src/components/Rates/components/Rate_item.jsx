@@ -31,7 +31,9 @@ const Rate = ({card_details}) => {
             </div> 
             <div className={s.item_content + (activ ? " " + s.activ : "")}>
                 <div>
-                    <div className={s.valid}>Текущий тариф</div>
+                    <div className={s.valid_div}>
+                        <div className={s.valid}>Текущий тариф</div>
+                    </div>
                     <div className={s.price}>
                         <div className={s.price_new}>{new_price_str} ₽</div>
                         <div className={s.price_old}>{old_price_str} ₽</div>

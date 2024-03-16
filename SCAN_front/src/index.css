@@ -51,6 +51,9 @@ h1 {
 h2 {
   font-size: 45px;
 }
+h3 {
+  font-size: 40px;
+}
 
 h5 {
   color: #000;
@@ -107,6 +110,9 @@ button:disabled {
   h2 {
     font-size: 34px;
   }
+  h3 {
+    font-size: 28px;
+  }
 }
 @media screen and (max-width: 375px) {
   :root {
@@ -114,6 +120,9 @@ button:disabled {
   }
   h1, h2 {
     font-size: 28px;
+  }
+  h3 {
+    font-size: 22px;
   }
   h5 {
     font-size: 19px;

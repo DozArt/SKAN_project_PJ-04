@@ -15,7 +15,7 @@ const useResize = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-
+  console.log(width, SCREEN_M, SCREEN_SM)
   return {
     width,
     isScreenSm: width > SCREEN_SM,

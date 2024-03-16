@@ -49,6 +49,8 @@ const FormAuthorization = () => {
 
     return (
         <div className={s.unit}>
+            <img className={s.look} src={img_look} />
+
             <div className={s.form}>
                 <div className={s.navigation}>
                     <Link to='/authorization' className={s.link_login + ' ' + s.select}><div>Войти</div></Link>
@@ -80,8 +82,6 @@ const FormAuthorization = () => {
                 </div>
                 <LoginSocial />
             </div>
-            
-            <img className={s.look} src={img_look} />
         </div>
     );
 };

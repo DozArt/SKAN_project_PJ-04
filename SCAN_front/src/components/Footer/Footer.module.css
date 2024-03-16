@@ -6,7 +6,7 @@
     position: relative;
     margin: 0 auto;
     background: url(../../public/images/logo_white.png) no-repeat 0 4px; /* Параметры фона */
-    background-position: 60px -2px;
+    background-position: var(--padding-value) -2px;
     background-size: 141px;
     background-color: #029491;
 }
