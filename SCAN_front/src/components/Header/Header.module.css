@@ -13,7 +13,7 @@
     height: 93px;
     object-fit: cover;
     width: 141px;
-    /* min-width: 141px; */
+    min-width: 141px;
 }
 
 .group_menu{
@@ -46,12 +46,20 @@
     .group_menu {
         display: none;
     }
+    .card {
+        display: none;
+    }
+    .limit_section{
+        margin: 9px 87px 0 0;
+
+    }
 }
 @media screen and (max-width: 375px) {
     .logo {
         height: 93px;
         object-fit: cover;
         width: 111px;
+        min-width: 111px;
     }
     .header {
         width: 347px;
@@ -67,10 +75,6 @@
     .limit_section{
         margin: 9px 87px 0 0;
 
-    }
-
-    .card {
-        display: none;
     }
     .authorization {
         display: none;

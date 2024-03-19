@@ -29,7 +29,7 @@ const BurgerMenu = ({className}) => {
             <div className={s.bottom_line}>
                 <div className={s.link_registration} onClick={toggleMenu}>Зарегистрироваться</div>
                 <Link to='/authorization'>
-                    <button className={s.button} >Войти</button>
+                    <button className={s.button} onClick={toggleMenu} >Войти</button>
                 </Link>
                 <Card onClick={toggleMenu}/>
             </div>

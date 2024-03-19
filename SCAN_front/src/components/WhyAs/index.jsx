@@ -47,8 +47,6 @@ const WhyAs = () => {
     }
     
 
-    // isScreenM ? '' : settings.slidesToShow = 2
-
     return (
         <div className={s.unit}>
             <h2 className={s.title}>Почему именно&nbsp;мы</h2>
