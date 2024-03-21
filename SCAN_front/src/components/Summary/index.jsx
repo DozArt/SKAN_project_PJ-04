@@ -39,12 +39,24 @@ const Summary = () => {
         className: s.sliderman
     };
 
-    useResize().isScreenSm ? '' : settings.slidesToShow = 2
+    const { width, isScreenSm, isScreenMd, isScreenXl} = useResize();
+
+    if (!isScreenSm) {
+        settings.slidesToShow = 1
+        settings.slidesToScroll = 1
+    } else if (!isScreenMd) {
+        settings.slidesToShow = 2
+    } else if (!isScreenXl) {
+        settings.slidesToShow = 4
+    }
+    else {
+        settings.slidesToShow = 8
+    }
 
 
     return (
         <div className={s.unit}>
-            <h2 className={s.title}>Общая сводка</h2>
+            <h4 className={s.title}>Общая сводка</h4>
             <p>Найдено 4 221 вариантов</p>
             <div className={s.table_summary}>
 

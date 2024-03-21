@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import s from './style.module.css'
 
-const InputText = ({label, typePass = false, name, onBlur, onChange, value, errorMesage}) => {
+const InputText = ({label, type, typePass = false, name, onBlur, onChange, value, defaultValue, errorMesage, placeholder}) => {
 
     const [ditry, setDitry] = useState(false)
 
@@ -10,6 +10,19 @@ const InputText = ({label, typePass = false, name, onBlur, onChange, value, erro
         setDitry(true)
     }
 
+    let inputType = 'text'
+
+    switch (type) {
+        case 'password':
+            inputType = 'password'
+            break
+        case 'number':
+            inputType = 'number'
+            break
+        case 'date':
+            inputType = 'date'
+            break
+    }
     
         // state ошибки?
     return (
@@ -21,9 +34,11 @@ const InputText = ({label, typePass = false, name, onBlur, onChange, value, erro
                 onBlur={e => blurHandler(e)}
                 onChange={onChange}
                 name={name}
-                value={value}
-                type = {typePass ? 'password' : 'text'}
+                // value={value}
+                defaultValue={defaultValue}
+                type = {inputType}
                 id={name}
+                placeholder={placeholder}
             />
             {ditry && <div className={s.error_state}>{errorMesage}</div>}
         </div>

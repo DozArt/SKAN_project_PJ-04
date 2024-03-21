@@ -4,6 +4,7 @@ import Button from 'comp/Button';
 import { Context } from '@/main'
 import { observer } from 'mobx-react-lite'
 import Input from '../../InputCheckbox';
+import InputText from '../../InputText';
 
 
 const FormRequest = () => {
@@ -45,9 +46,9 @@ const FormRequest = () => {
     const [state, setState] = useState({
         inn: '',
         innDitry: false,
-        innError: 'Заполните ИНН',
+        innError: '',
         limit: false,
-        limitError: 'Введите значение в диапазоне от 1 до 1000',
+        limitError: '',
         start_date: '',
         start_dateDitry: false,
         end_date: '',
@@ -161,16 +162,16 @@ const FormRequest = () => {
                 <div className={s.form_request}>
                     <div className={s.inputs}>
                         
-                        <h4>ИНН компании</h4>
-                        <input 
-                            onBlur={e => blurHandler(e)}
-                            onChange={e => innHandler(e)}
+                        <InputText
+                            label="ИНН компании"
                             name='inn'
+                            // value={state.inn}
+                            errorMesage={state.innError}
                             defaultValue={store.inn}
-                            type='text'
+                            onChange={e => innHandler(e)}
+                            type="number"
                             placeholder='ИНН - 10 цифр'
                         />
-                        {(state.innDitry && state.innError) && <div>{state.innError}</div>}
                         <h4>Тональность</h4>
                         <select id="request_tonality" >
                             <option value="any">Любая</option>
@@ -179,20 +180,40 @@ const FormRequest = () => {
                             <option value="positive">Позитивная</option>
                         </select>
 
-                        <h4>Количество документов в выдаче</h4>
-                        <input 
-                            onBlur={e => blurHandler(e)}
-                            onChange={limitHandler} 
+                        <InputText 
+                            label="Количество документов в выдаче"
                             name="limit"
+                            errorMesage={state.limitError}
                             defaultValue={store.limit}
+                            onChange={limitHandler} 
                             type="number" 
                             placeholder="От 1 до 1000" min="1" max="1000" 
                         />
-                        {(state.limitDitry && state.limitError) && <div>{state.limitError}</div>}
 
-                        <h4>Диапазон поиска</h4>
+                        {/* <h4></h4> */}
                         <div className={s.range}>
-                            <input 
+
+                        <InputText 
+                            name="start_date"
+                            // errorMesage={state.dateError}
+                            defaultValue={store.startDate}
+                            onChange={e => dataHandler(e)}
+                            type='date'
+                            placeholder='Дата начала'
+                            label='Диапазон поиска'
+                        />
+                        <InputText 
+                            name="end_date"
+                            // errorMesage={state.dateError}
+                            defaultValue={store.endDate}
+                            onChange={e => dataHandler(e)}
+                            type='date'
+                            placeholder='Дата начала'
+                            label='&nbsp;'
+                        />
+                        
+                            {/* здесь предупреждение об ошибке еще работает */}
+                            {/* <input 
                                 onBlur={e => blurHandler(e)}
                                 onChange={e => dataHandler(e)}
                                 defaultValue={store.startDate}
@@ -205,7 +226,7 @@ const FormRequest = () => {
                                 defaultValue={store.endDate}
                                 name="end_date"
                                 type='date'
-                            />
+                            /> */}
                         </div>
                         {(state.start_dateDitry && state.end_dateDitry && state.dateError) && <div>{state.dateError}</div>}
                     </div>

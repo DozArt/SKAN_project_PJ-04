@@ -35,11 +35,11 @@ const WhyAs = () => {
         className: s.sliderman
     };
 
-    const { width, isScreenSm, isScreenM} = useResize();
+    const { width, isScreenMd, isScreenXl} = useResize();
 
-    if (!isScreenSm) {
+    if (!isScreenMd) {
         settings.slidesToShow = 1
-    } else if (!isScreenM) {
+    } else if (!isScreenXl) {
         settings.slidesToShow = 2
     }
     else {

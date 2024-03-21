@@ -1,6 +1,6 @@
 .unit {
     background-color: #fff;
-    width: 1320px;
+    max-width: 1320px;
     margin: 0 auto;
     padding: 60px;
 }
@@ -21,9 +21,14 @@
     gap: 38px;
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 1000px) {
+    .ListDocuments {
+        display: flex;
+        flex-direction: column;
+        gap: 38px;
+    }
     .unit {
-        width: 347px;
+        width: min-347px;
         padding: 55px 14px;
     }
     .title {

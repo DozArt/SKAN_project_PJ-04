@@ -1,9 +1,7 @@
 .unit {
     background-color: #fff;
-    position: relative;
-    width: 1320px;
     margin: 0 auto;
-    padding: 0 60px 64px;
+    padding: 0 var(--padding-value) 64px;
     background-image: url('./images/img_file_and_folders.svg');
     background-size: 398px;
     background-repeat: no-repeat;
@@ -12,13 +10,8 @@
 }
 .title {
     color: #000;
-    font-family: Ferry, Helvetica;
-    font-size: 40px;
-    font-style: normal;
     font-weight: 900;
-    line-height: normal;
-    letter-spacing: 0.8px;
-    width: 753px;
+    max-width: 753px;
     margin: 0;
     padding: 69px 0px 0 0px;
 }
@@ -27,29 +20,24 @@
     color: #000;
     font-family: "Inter-Regular", Helvetica;
     font-size: 20px;
-    font-style: normal;
     font-weight: 400;
-    line-height: normal;
     margin: 0;
     padding: 24px 0px 47px;
-    letter-spacing: 0.2px;
 }
 .form {
-    width: 872px;
-    height: 543px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .mascot {
     width: 430px;
     height: 470px;
-    position: absolute;
-    top: 351px;
-    left: 1005px;
     background-image: url('./images/search_mascot.svg');
     background-repeat: no-repeat;
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 475px) {
     .unit {
         height: auto;
         display: flex;
