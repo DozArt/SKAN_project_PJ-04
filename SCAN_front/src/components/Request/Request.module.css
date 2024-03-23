@@ -1,7 +1,7 @@
 .unit {
     background-color: #fff;
     margin: 0 auto;
-    padding: 0 var(--padding-value) 64px;
+    padding: 0 0 64px var(--padding-value);
     background-image: url('./images/img_file_and_folders.svg');
     background-size: 398px;
     background-repeat: no-repeat;
@@ -31,18 +31,31 @@
 }
 
 .mascot {
+    margin-left: 20px;
     width: 430px;
     height: 470px;
     background-image: url('./images/search_mascot.svg');
     background-repeat: no-repeat;
 }
+@media screen and (max-width: 800px) {
+    .unit {
 
+        padding: 0 var(--padding-value) 64px;
+    }
+    .form {
+        flex-direction: column;
+    }
+    .mascot {
+        align-self: center;
+        margin: 30px 0;
+    }
+}
 @media screen and (max-width: 475px) {
     .unit {
         height: auto;
         display: flex;
         flex-direction: column;
-        width: 347px;
+        /* width: 347px; */
         padding: 0 14px;
         background-size: 254px;
         background-position: 291px 117px;
@@ -62,7 +75,7 @@
         position: relative;
         top: auto;
         left: auto;
-        width: 335px;
+        /* width: 335px; */
         height: auto;
     }
     .mascot {

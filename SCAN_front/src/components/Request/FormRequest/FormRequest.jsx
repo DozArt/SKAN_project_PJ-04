@@ -158,94 +158,85 @@ const FormRequest = () => {
 
     return (
         <div className={s.unit}>
-            <div className={s.form}>
-                <div className={s.form_request}>
-                    <div className={s.inputs}>
-                        
-                        <InputText
-                            label="ИНН компании"
+            <div className={s.inputs}>
+                
+                <InputText  label="ИНН компании*"
                             name='inn'
                             // value={state.inn}
                             errorMesage={state.innError}
                             defaultValue={store.inn}
                             onChange={e => innHandler(e)}
                             type="number"
-                            placeholder='ИНН - 10 цифр'
-                        />
-                        <h4>Тональность</h4>
-                        <select id="request_tonality" >
-                            <option value="any">Любая</option>
-                            <option value="negative">Негативная</option>
-                            <option value="neutral">Нейтральная</option>
-                            <option value="positive">Позитивная</option>
-                        </select>
+                            placeholder='ИНН - 10 цифр' />
+                
+                <label>Тональность</label>
+                
+                <select id="request_tonality" className={s.tonality}>
+                    <option value="any">Любая</option>
+                    <option value="negative">Негативная</option>
+                    <option value="neutral">Нейтральная</option>
+                    <option value="positive">Позитивная</option>
+                </select>
 
-                        <InputText 
-                            label="Количество документов в выдаче"
+                <InputText  label="Количество документов в выдаче*"
                             name="limit"
                             errorMesage={state.limitError}
                             defaultValue={store.limit}
                             onChange={limitHandler} 
                             type="number" 
-                            placeholder="От 1 до 1000" min="1" max="1000" 
-                        />
+                            placeholder="От 1 до 1000" min="1" max="1000" />
 
-                        {/* <h4></h4> */}
-                        <div className={s.range}>
+                <label>Диапазон поиска*</label>
+                <div className={s.range}>
 
-                        <InputText 
-                            name="start_date"
-                            // errorMesage={state.dateError}
-                            defaultValue={store.startDate}
-                            onChange={e => dataHandler(e)}
-                            type='date'
-                            placeholder='Дата начала'
-                            label='Диапазон поиска'
-                        />
-                        <InputText 
-                            name="end_date"
-                            // errorMesage={state.dateError}
-                            defaultValue={store.endDate}
-                            onChange={e => dataHandler(e)}
-                            type='date'
-                            placeholder='Дата начала'
-                            label='&nbsp;'
-                        />
-                        
-                            {/* здесь предупреждение об ошибке еще работает */}
-                            {/* <input 
-                                onBlur={e => blurHandler(e)}
-                                onChange={e => dataHandler(e)}
+                    <InputText  name="start_date"
+                                // errorMesage={state.dateError}
                                 defaultValue={store.startDate}
-                                name="start_date"
-                                type='date'
-                            />
-                            <input 
-                                onBlur={e => blurHandler(e)}
                                 onChange={e => dataHandler(e)}
-                                defaultValue={store.endDate}
-                                name="end_date"
                                 type='date'
-                            /> */}
-                        </div>
-                        {(state.start_dateDitry && state.end_dateDitry && state.dateError) && <div>{state.dateError}</div>}
-                    </div>
-                    <div className={s.checkboxes}>
+                                placeholder='Дата начала' />
+                                
+                    <InputText  name="end_date"
+                                // errorMesage={state.dateError}
+                                defaultValue={store.endDate}
+                                onChange={e => dataHandler(e)}
+                                type='date'
+                                placeholder='Дата начала' />
+                    
+                        {/* здесь предупреждение об ошибке еще работает */}
+                        {/* <input 
+                            onBlur={e => blurHandler(e)}
+                            onChange={e => dataHandler(e)}
+                            defaultValue={store.startDate}
+                            name="start_date"
+                            type='date'
+                        />
+                        <input 
+                            onBlur={e => blurHandler(e)}
+                            onChange={e => dataHandler(e)}
+                            defaultValue={store.endDate}
+                            name="end_date"
+                            type='date'
+                        /> */}
+                </div>
 
-                        {inputs.map(arg => (
-                            <Input  key={arg.name}
-                                    name={arg.name}  // он же id и for
-                                    description={arg.description} 
-                                    defaultChecked={arg.defaultChecked} 
-                                    onClick={e => store.setCheck(e)}/>
-                        ))}
-                        
-                        <Button className={s.search_button} disabled={state.disableButton} >Поиск</Button>
-                        <p>* Обязательные к заполнению поля</p>
-                    </div>
+                {(state.start_dateDitry && state.end_dateDitry && state.dateError) && <div>{state.dateError}</div>}
+            </div>
+            <div className={s.form_right}>
+                <div className={s.checkboxes}>
+                    {inputs.map(arg => (
+                        <Input  key={arg.name}
+                                name={arg.name}  // он же id и for
+                                description={arg.description} 
+                                defaultChecked={arg.defaultChecked} 
+                                onClick={e => store.setCheck(e)}/>
+                    ))}
+                </div>
+                <div className={s.unit_button}>
+                    <Button className={s.search_button} disabled={state.disableButton} >Поиск</Button>
+                    <p>* Обязательные к заполнению поля</p>
                 </div>
             </div>
-            
         </div>
     );
 };

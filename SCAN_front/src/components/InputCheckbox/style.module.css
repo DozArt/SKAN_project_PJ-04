@@ -1,23 +1,54 @@
 .unit {
     display: flex;
     gap: 17px;
+    align-items: flex-start;
 
-    label {
+    
+    .description {
         font-family: Inter-Regular;
+        color: #ccc;
         font-size: 16px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
-        letter-spacing: 3%;
+        letter-spacing: 0.3px;
         margin: 15px 0 0 0;
     }
-    .check {
+    /* .check {
+        width: 20px;
+        height: 20px;
+        font-size: 30px;
         margin: 15px 0 0 0;
         padding: 0;
-        border-radius: 5px;
-        border: 1px solid #C7C7C7;
-        background: #FFF;
-        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
+    } */
+    input[type="checkbox"] {
+        display: none;
+      }
+    .styled_checkbox {
+        display: inline-block;
+        width: 20px; /* Ширина вашего флажка */
+        min-width: 20px;
+        height: 20px; /* Высота вашего флажка */
+        background-color: #ffffff;
+        border-radius: 0px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        margin: 13px 0 0 0;
+    }
+    input[type="checkbox"]:checked + .styled_checkbox::before {
+        content: '\2713'; /* Знак "галочка" */
+        font-family: Inter-Regular;
+        font-size: 22px; /* Размер галочки */
+        color: rgb(120, 201, 75); /* Цвет галочки */
+        text-align: center;
+        line-height: 20px; /* Центрирование галочки по вертикали */
+    }
+    input[type="checkbox"]:checked + .styled_checkbox {
+        border: 1px solid #000000;
+    }
+
+    input[type="checkbox"]:checked + .styled_checkbox + label.description {
+        color: #000;
     }
 }
 

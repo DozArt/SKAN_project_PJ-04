@@ -23,13 +23,19 @@ const InputText = ({label, type, typePass = false, name, onBlur, onChange, value
             inputType = 'date'
             break
     }
-    
+
+    const label_output = ( 
+        <label htmlFor={name} className={s.label_input}>
+            {label}
+        </label>
+    )
+
         // state ошибки?
     return (
         <div className={(ditry && errorMesage) ? s.error_designation : s.unit}>
-            <label htmlFor={name} >
-                {label}
-            </label>
+
+            {label ? label_output : ''}
+
             <input 
                 onBlur={e => blurHandler(e)}
                 onChange={onChange}

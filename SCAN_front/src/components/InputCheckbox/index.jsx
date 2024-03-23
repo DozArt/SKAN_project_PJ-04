@@ -11,7 +11,8 @@ const Input = ({description, name, defaultChecked, disabled = false, onClick}) =
                     name={name}
                     id={name}
                     defaultChecked = {defaultChecked} />
-            <label htmlFor={name} >
+            <label htmlFor={name} className={s.styled_checkbox}></label>
+            <label htmlFor={name} className={s.description}>
                 {description}
             </label>
         </div>
