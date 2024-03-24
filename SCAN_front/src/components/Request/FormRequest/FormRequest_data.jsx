@@ -2,11 +2,7 @@ import {useContext} from 'react';
 import { Context } from '@/main'
 import { observer } from 'mobx-react-lite'
 
-
-const FormRequest = () => {
-    const {store} = useContext(Context)
-
-    const inputs = [
+const inputs = [
         {   name: 'maxFullness',
             description: 'Признак максимальной полноты',
             defaultChecked: store.maxFullness,
@@ -36,6 +32,11 @@ const FormRequest = () => {
             defaultChecked: store.includeDigests,
         },
     ]
+
+const Date = () => {
+    const {store} = useContext(Context)
+
+    
 
     const updateState = (state) => {
         setState(prev => ({
@@ -129,5 +130,5 @@ const FormRequest = () => {
     }
 };
 
-export default observer(FormRequest);
+export default inputs;
 

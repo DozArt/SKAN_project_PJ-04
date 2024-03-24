@@ -42,7 +42,7 @@ export default class Store {
     }
 
     setEndDate(value){
-        this.EndDate = value
+        this.endDate = value
     }
 
     setLocalDataRequest(item, data) {

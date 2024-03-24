@@ -1,4 +1,4 @@
-import {useContext, useState, useRef} from 'react';
+import {useContext, useState, useRef, useEffect} from 'react';
 import s from './FormRequest.module.css';
 import Button from 'comp/Button';
 import { Context } from '@/main'
@@ -9,8 +9,8 @@ import InputText from '../../InputText';
 
 const FormRequest = () => {
     const {store} = useContext(Context)
-    const [start_date, setStart_date] = useState('')
-    const [end_date, setEnd_date] = useState('')
+    // const [start_date, setStart_date] = useState('')
+    // const [end_date, setEnd_date] = useState('')
 
     const inputs = [
         {   name: 'maxFullness',
@@ -42,25 +42,33 @@ const FormRequest = () => {
             defaultChecked: store.includeDigests,
         },
     ]
+    const [validation, setValidation] = useState(false)
 
     const [state, setState] = useState({
         inn: '',
         innDitry: false,
-        innError: '',
+        innError: 'Не верный ИНН',
         limit: false,
-        limitError: '',
+        limitError: 'Диапазин значений от 1 до 1000',
         start_date: '',
         start_dateDitry: false,
-        end_date: '',
+        end_date: '99999999',
         end_dateDitry: false,
-        dateError: 'Введите корректные данные',
+        dateError: '',
         disableButton: true,
     })
+    
 
+    // const startDate = useRef(null)
+    // const endDate = useRef(null)
 
-    const startDate = useRef(null)
-    const endDate = useRef(null)
-
+    useEffect(() => {
+        if (state.innError || state.limitError || state.dateError) {
+            setValidation(false)
+        } else {
+            setValidation(true)
+        }
+    }, [state])
 
     const updateState = (state) => {
         setState(prev => ({
@@ -69,24 +77,25 @@ const FormRequest = () => {
         }))
     }
 
-    const blurHandler = (e) => {
-        switch (e.target.name) {
-            case 'inn':
-                updateState({innDitry: true})
-                break
-            case 'limit':
-                updateState({limitDitry: true})
-                break
-            case 'start_date':
-                updateState({start_dateDitry: true})
-                validDateForm()
-                break
-            case 'end_date':
-                updateState({end_dateDitry: true})
-                validDateForm()
-                break
-        }
-    }
+    // const blurHandler = (e) => {
+    //     switch (e.target.name) {
+    //         case 'inn':
+    //             updateState({innDitry: true})
+    //             console.log('inn')
+    //             break
+    //         case 'limit':
+    //             updateState({limitDitry: true})
+    //             break
+    //         case 'start_date':
+    //             updateState({start_dateDitry: true})
+    //             validDateForm()
+    //             break
+    //         case 'end_date':
+    //             updateState({end_dateDitry: true})
+    //             validDateForm()
+    //             break
+    //     }
+    // }
 
 
     const innHandler = (e) => {
@@ -130,29 +139,37 @@ const FormRequest = () => {
 
     const dataHandler = (e) => {
         const dataValue = e.target.value
-
         switch (e.target.name) {
-            case 'end_date':
-                updateState({end_date: dataValue})
-                break
             case 'start_date':
+                if (dataValue > state.end_date) {
+                    updateState({dateError: 'Введите корректные данные'})
+                } else {
+                    updateState({dateError: ''})
+                    store.setStartDate(dataValue)
+                }
                 updateState({start_date: dataValue})
                 break
-            
+            case 'end_date':
+                if (state.start_date > dataValue) {
+                    updateState({dateError: 'Введите корректные данные'})
+                } else {
+                    updateState({dateError: ''})
+                    store.setEndDate(dataValue)
+                }
+                updateState({end_date: dataValue})
+                break
         }
     }
 
     const validDateForm = () => {
-        if(state.start_dateDitry && state.end_dateDitry) {
-            if (state.start_date > state.end_date) {
-                updateState({dateError: 'Введите корректные данные'})
-            } else {
-                updateState({dateError: ''})
-                store.setStartDate(state.start_date)
-                store.setEndDate(state.end_date)
-            }
+        if (state.start_date > state.end_date) {
+            console.log(state.start_date, state.end_date)
+            updateState({dateError: 'Введите корректные данные'})
+        } else {
+            updateState({dateError: ''})
+            store.setStartDate(state.start_date)
+            store.setEndDate(state.end_date)
         }
-        
     }
 
 
@@ -166,7 +183,7 @@ const FormRequest = () => {
                             errorMesage={state.innError}
                             defaultValue={store.inn}
                             onChange={e => innHandler(e)}
-                            type="number"
+                            type="text"
                             placeholder='ИНН - 10 цифр' />
                 
                 <label>Тональность</label>
@@ -190,14 +207,14 @@ const FormRequest = () => {
                 <div className={s.range}>
 
                     <InputText  name="start_date"
-                                // errorMesage={state.dateError}
+                                errorMesage={state.dateError ? ' ' : ''}
                                 defaultValue={store.startDate}
                                 onChange={e => dataHandler(e)}
                                 type='date'
                                 placeholder='Дата начала' />
                                 
                     <InputText  name="end_date"
-                                // errorMesage={state.dateError}
+                                errorMesage={state.dateError ? ' ' : ''}
                                 defaultValue={store.endDate}
                                 onChange={e => dataHandler(e)}
                                 type='date'
@@ -220,7 +237,8 @@ const FormRequest = () => {
                         /> */}
                 </div>
 
-                {(state.start_dateDitry && state.end_dateDitry && state.dateError) && <div>{state.dateError}</div>}
+                {(state.dateError) && <div>{state.dateError}</div>}
+                {/* {(state.dateError) && <div>{state.dateError}</div>}   */}
             </div>
             <div className={s.form_right}>
                 <div className={s.checkboxes}>
@@ -233,7 +251,7 @@ const FormRequest = () => {
                     ))}
                 </div>
                 <div className={s.unit_button}>
-                    <Button className={s.search_button} disabled={state.disableButton} >Поиск</Button>
+                    <Button className={s.search_button} disabled={!validation} >Поиск</Button>
                     <p>* Обязательные к заполнению поля</p>
                 </div>
             </div>
