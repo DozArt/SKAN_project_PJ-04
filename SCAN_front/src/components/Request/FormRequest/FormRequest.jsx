@@ -9,8 +9,7 @@ import InputText from '../../InputText';
 
 const FormRequest = () => {
     const {store} = useContext(Context)
-    // const [start_date, setStart_date] = useState('')
-    // const [end_date, setEnd_date] = useState('')
+    
 
     const inputs = [
         {   name: 'maxFullness',
@@ -31,15 +30,15 @@ const FormRequest = () => {
         },
         {   name: 'includeTechNews',
             description: 'Включать технические новости рынков',
-            defaultChecked: store.includeTechNews,
+            defaultChecked: !store.includeTechNews,
         },
         {   name: 'includeAnnouncements',
             description: 'Включать анонсы и календари',
-            defaultChecked: store.includeAnnouncements,
+            defaultChecked: !store.includeAnnouncements,
         },
         {   name: 'includeDigests',
             description: 'Включать сводки новостей',
-            defaultChecked: store.includeDigests,
+            defaultChecked: !store.includeDigests,
         },
     ]
     const [validation, setValidation] = useState(false)
@@ -52,15 +51,11 @@ const FormRequest = () => {
         limitError: 'Диапазин значений от 1 до 1000',
         start_date: '',
         start_dateDitry: false,
-        end_date: '99999999',
+        end_date: '',
         end_dateDitry: false,
-        dateError: '',
+        dateError: ' ',
         disableButton: true,
     })
-    
-
-    // const startDate = useRef(null)
-    // const endDate = useRef(null)
 
     useEffect(() => {
         if (state.innError || state.limitError || state.dateError) {
@@ -76,27 +71,6 @@ const FormRequest = () => {
             ...state
         }))
     }
-
-    // const blurHandler = (e) => {
-    //     switch (e.target.name) {
-    //         case 'inn':
-    //             updateState({innDitry: true})
-    //             console.log('inn')
-    //             break
-    //         case 'limit':
-    //             updateState({limitDitry: true})
-    //             break
-    //         case 'start_date':
-    //             updateState({start_dateDitry: true})
-    //             validDateForm()
-    //             break
-    //         case 'end_date':
-    //             updateState({end_dateDitry: true})
-    //             validDateForm()
-    //             break
-    //     }
-    // }
-
 
     const innHandler = (e) => {
         const innValue = e.target.value
@@ -145,7 +119,9 @@ const FormRequest = () => {
                     updateState({dateError: 'Введите корректные данные'})
                 } else {
                     updateState({dateError: ''})
+                    updateState({start_date: dataValue})
                     store.setStartDate(dataValue)
+                    store.setEndDate(state.end_date)
                 }
                 updateState({start_date: dataValue})
                 break
@@ -154,23 +130,80 @@ const FormRequest = () => {
                     updateState({dateError: 'Введите корректные данные'})
                 } else {
                     updateState({dateError: ''})
+                    updateState({end_date: dataValue})
                     store.setEndDate(dataValue)
+                    store.setStartDate(state.start_date)
                 }
                 updateState({end_date: dataValue})
                 break
         }
     }
 
-    const validDateForm = () => {
-        if (state.start_date > state.end_date) {
-            console.log(state.start_date, state.end_date)
-            updateState({dateError: 'Введите корректные данные'})
-        } else {
-            updateState({dateError: ''})
-            store.setStartDate(state.start_date)
-            store.setEndDate(state.end_date)
-        }
-    }
+
+    const RequestHistogram = () => {
+
+        store.setBodyHistograms(
+            {
+                issueDateInterval: {
+                    startDate: `${store.startDate}T00:00:00+03:00`,  //
+                    endDate: `${store.endDate}T23:59:59+03:00`,  //
+                },
+                searchContext: {
+                    targetSearchEntitiesContext: {
+                        targetSearchEntities: [
+                            {
+                                type: "company",
+                                sparkId: null,
+                                entityId: null,
+                                inn: store.inn,  //
+                                maxFullness: store.maxFullness,  //
+                                inBusinessNews: store.inBusinessNews,  //
+
+                            }
+                        ],
+                        onlyMainRole: store.onlyMainRole,  //
+                        tonality: store.tonality,  // store.tonality
+                        onlyWithRiskFactors: store.onlyWithRiskFactors,  //
+                        riskFactors: {
+                            and: [],
+                            or: [],
+                            not: []
+                        },
+                        themes: {
+                            and: [],
+                            or: [],
+                            not: []
+                        }
+                    },
+                    themesFilter: {
+                        and: [],
+                        or: [],
+                        not: []
+                    }
+                },
+                searchArea: {
+                    includedSources: [],
+                    excludedSources: [],
+                    includedSourceGroups: [],
+                    excludedSourceGroups: []
+                },
+                attributeFilters: {
+                    excludeTechNews: store.includeTechNews,  //
+                    excludeAnnouncements: store.includeAnnouncements,  //
+                    excludeDigests: store.includeDigests,  //
+                },
+                similarMode: "duplicates",
+                limit: Number(store.limit),  //
+                sortType: "sourceInfluence",
+                sortDirectionType: "desc",
+                intervalType: "month",
+                histogramTypes: [
+                    "totalDocuments",
+                    "riskFactors"
+                ]
+            }
+        )
+    };
 
 
     return (
@@ -219,39 +252,25 @@ const FormRequest = () => {
                                 onChange={e => dataHandler(e)}
                                 type='date'
                                 placeholder='Дата начала' />
-                    
-                        {/* здесь предупреждение об ошибке еще работает */}
-                        {/* <input 
-                            onBlur={e => blurHandler(e)}
-                            onChange={e => dataHandler(e)}
-                            defaultValue={store.startDate}
-                            name="start_date"
-                            type='date'
-                        />
-                        <input 
-                            onBlur={e => blurHandler(e)}
-                            onChange={e => dataHandler(e)}
-                            defaultValue={store.endDate}
-                            name="end_date"
-                            type='date'
-                        /> */}
+
                 </div>
 
                 {(state.dateError) && <div>{state.dateError}</div>}
-                {/* {(state.dateError) && <div>{state.dateError}</div>}   */}
             </div>
             <div className={s.form_right}>
                 <div className={s.checkboxes}>
                     {inputs.map(arg => (
                         <Input  key={arg.name}
-                                name={arg.name}  // он же id и for
+                                name={arg.name}
                                 description={arg.description} 
                                 defaultChecked={arg.defaultChecked} 
                                 onClick={e => store.setCheck(e)}/>
                     ))}
                 </div>
                 <div className={s.unit_button}>
-                    <Button className={s.search_button} disabled={!validation} >Поиск</Button>
+                    <Button onClick={() => RequestHistogram()}
+                            className={s.search_button} 
+                            disabled={!validation} >Поиск</Button>
                     <p>* Обязательные к заполнению поля</p>
                 </div>
             </div>

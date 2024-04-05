@@ -8,7 +8,7 @@ export default class Store {
     isAuth = false
 
     inn = ''
-    tonality = ''
+    tonality = 'any'
     limit = ''
     startDate = ''
     endDate = ''
@@ -20,6 +20,12 @@ export default class Store {
     includeTechNews = false
     includeAnnouncements = false
     includeDigests = false
+
+    bodyHistograms = []
+
+    setBodyHistograms(value){
+        this.bodyHistograms = value
+    }
 
     setAuth(bool) {
         this.isAuth = bool;
@@ -153,89 +159,4 @@ export default class Store {
             console.log(e.response.data.message);
         }
     }
-
-    async RequestHistogram(request) {
-        try {
-            const response = await fetch(`${this.baseURL}objectsearch/histograms`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(
-                    {
-                        issueDateInterval: {
-                            startDate: new Date(this.startDate).toISOString(),
-                            endDate: new Date(this.endDate).toISOString(),
-                        },
-                        searchContext: {
-                            targetSearchEntitiesContext: {
-                                targetSearchEntities: [
-                                    {
-                                        type: "company",
-                                        sparkId: null,
-                                        entityId: null,
-                                        inn: this.inn,
-                                        maxFullness: request.maxFullness,
-                                        inBusinessNews: request.inBusinessNews,
-                                    }
-                                ],
-                                onlyMainRole: request.onlyMainRole,
-                                tonality: this.tonality,  // tonality
-                                onlyWithRiskFactors: request.onlyWithRiskFactors,
-                                riskFactors: {
-                                    and: [],
-                                    or: [],
-                                    not: []
-                                },
-                                themes: {
-                                    and: [],
-                                    or: [],
-                                    not: []
-                                }
-                            },
-                            themesFilter: {
-                                and: [],
-                                or: [],
-                                not: []
-                            }
-                        },
-                        searchArea: {
-                            includedSources: [],
-                            excludedSources: [],
-                            includedSourceGroups: [],
-                            excludedSourceGroups: []
-                        },
-                        attributeFilters: {
-                            excludeTechNews: request.excludeTechNews,
-                            excludeAnnouncements: request.excludeAnnouncements,
-                            excludeDigests: request.excludeDigests,
-                        },
-                        similarMode: "duplicates",
-                        limit: request.limit,
-                        sortType: "sourceInfluence",
-                        sortDirectionType: "desc",
-                        intervalType: "month",
-                        histogramTypes: [
-                            "totalDocuments",
-                            "riskFactors"
-                        ]
-                    }
-                ),
-            });
-    
-            if (response.ok) {
-                const data = await response.json();
-                const accessToken = data.accessToken;
-                this.setAuth(true)
-                localStorage.setItem("accessToken", accessToken)
-                console.log('Login successful. Access Token:', localStorage.getItem("accessToken"));
-                // Далее вы можете сохранить токен в состоянии приложения или использовать его по вашему усмотрению
-            } else {
-                console.error('Login failed');
-            }
-        } catch (error) {
-            console.error('Error during login:', error);
-        }
-    };
-
 }
