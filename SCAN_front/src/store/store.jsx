@@ -22,9 +22,14 @@ export default class Store {
     includeDigests = false
 
     bodyHistograms = []
+    listDocuments = []
 
     setBodyHistograms(value){
         this.bodyHistograms = value
+    }
+
+    setListDocuments(value){
+        this.listDocuments = value
     }
 
     setAuth(bool) {

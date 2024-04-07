@@ -155,7 +155,7 @@ const FormRequest = () => {
                                 type: "company",
                                 sparkId: null,
                                 entityId: null,
-                                inn: store.inn,  //
+                                inn: Number(store.inn),  //
                                 maxFullness: store.maxFullness,  //
                                 inBusinessNews: store.inBusinessNews,  //
 
@@ -194,7 +194,7 @@ const FormRequest = () => {
                 },
                 similarMode: "duplicates",
                 limit: Number(store.limit),  //
-                sortType: "sourceInfluence",
+                sortType: "issueDate",
                 sortDirectionType: "desc",
                 intervalType: "month",
                 histogramTypes: [
