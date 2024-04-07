@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import s from './Rate_item.module.css'
 import Button from '../../Button';
-
+import { Context } from '@/main';
 
 const Rate = ({card_details}) => {
+    const {store} = useContext(Context)
 
     const { 
         title = 'Premium',
@@ -29,7 +30,7 @@ const Rate = ({card_details}) => {
                 </div>
                 <img src={icon} />
             </div> 
-            <div className={s.item_content + (activ ? " " + s.activ : "")}>
+            <div className={s.item_content + (activ && store.isAuth ? " " + s.activ : "")}>
                 <div>
                     <div className={s.valid_div}>
                         <div className={s.valid}>Текущий тариф</div>

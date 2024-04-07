@@ -125,8 +125,9 @@ export default class Store {
                 const accessToken = data.accessToken;
                 this.setAuth(true)
                 localStorage.setItem("accessToken", accessToken)
-                console.log('Login successful. Access Token:', localStorage.getItem("accessToken"));
+                console.log('Login successful');
                 // Далее вы можете сохранить токен в состоянии приложения или использовать его по вашему усмотрению
+                
             } else {
                 localStorage.setItem("accessToken", accessToken)
                 console.error('Login failed');

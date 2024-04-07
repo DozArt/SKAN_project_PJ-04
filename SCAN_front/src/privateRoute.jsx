@@ -13,8 +13,10 @@ const PrivateRoute = (props) => {
     */
 
     if (localStorage.getItem('accessToken')) {
+        console.log('токен найден')
         return <Outlet/>
     } else {
+        console.log('токен не найден')
         return <Navigate to="/authorization" />;
     }
 };

@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import s from './BurgerMenu.module.css'
 import logo_white from 'img/logo_white.png'
 import { Link } from 'react-router-dom';
+import { Context } from '@/main';
 import Card from '../Card/Card';
 
 
 
 const BurgerMenu = ({className}) => {
-    
+    const {store} = useContext(Context)
     const [menuActive, setMenuActive] = useState(false)
 
     const toggleMenu = () => {
@@ -27,11 +28,15 @@ const BurgerMenu = ({className}) => {
                 <Link to="/authorization" className={s.item_menu} onClick={toggleMenu}>FAQ</Link>
             </div>
             <div className={s.bottom_line}>
-                <div className={s.link_registration} onClick={toggleMenu}>Зарегистрироваться</div>
-                <Link to='/authorization'>
-                    <button className={s.button} onClick={toggleMenu} >Войти</button>
-                </Link>
-                <Card onClick={toggleMenu}/>
+                
+                {store.isAuth ? <Card onClick={toggleMenu}/> :
+                <>
+                    <div className={s.link_registration} onClick={toggleMenu}>Зарегистрироваться</div>
+                    <Link to='/authorization'>
+                        <button className={s.button} onClick={toggleMenu} >Войти</button>
+                    </Link>
+                </>
+                }
             </div>
         </div>
     );
