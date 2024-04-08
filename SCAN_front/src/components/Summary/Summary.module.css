@@ -41,7 +41,6 @@
     }
 }
 .sliderman {
-    
     margin-left: 130px;
     height: 158px;
     display: flex;
@@ -112,9 +111,6 @@
             transform: translate(0px,0);
             
         }
-    }
-    .table_summary {
-
     }
     .items_titles {
         width: auto;

@@ -2,11 +2,11 @@ import React, { useState, useEffect, useContext } from 'react';
 import s from './FormAuthorization.module.css';
 import img_look from './images/Group 1171274237.svg'
 import LoginSocial from 'comp/LoginSocial';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Context } from '@/main';
 import Button from '../../Button';
-import Test from '../../../public/images/test_form.png';
 import InputText from '../../InputText';
+import { observer } from "mobx-react-lite";
 
 const FormAuthorization = () => {
     const [login, setLogin] = useState('')
@@ -46,6 +46,16 @@ const FormAuthorization = () => {
         }
     }
 
+    const handleLogin = async (login, password) => {
+        try {
+            await store.handleLogin(login, password);
+            navigate('/');
+        } catch (error) {
+            console.error('Error during login:', error);
+        }
+    };
+
+    const navigate = useNavigate();
 
     return (
         <div className={s.unit}>
@@ -72,7 +82,7 @@ const FormAuthorization = () => {
                                 errorMesage={passwordError}
                                 onChange={e => passwordHandler(e)
                     }/>
-                    <Button onClick={() => store.handleLogin(login, password)}
+                    <Button onClick={() => handleLogin(login, password, '/')}
                             className={s.button}
                             disabled={!validation}>
                         Войти
@@ -86,5 +96,5 @@ const FormAuthorization = () => {
     );
 };
 
-export default FormAuthorization;
+export default observer(FormAuthorization);
 

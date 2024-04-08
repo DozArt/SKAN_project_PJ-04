@@ -3,13 +3,14 @@ import s from './FormRequest.module.css';
 import Button from 'comp/Button';
 import { Context } from '@/main'
 import { observer } from 'mobx-react-lite'
+import { useNavigate } from 'react-router-dom';
 import Input from '../../InputCheckbox';
 import InputText from '../../InputText';
 
 
 const FormRequest = () => {
     const {store} = useContext(Context)
-    
+    const navigate = useNavigate();
 
     const inputs = [
         {   name: 'maxFullness',
@@ -44,16 +45,16 @@ const FormRequest = () => {
     const [validation, setValidation] = useState(false)
 
     const [state, setState] = useState({
-        inn: '',
+        inn: '',  //store.inn,
         innDitry: false,
         innError: 'Не верный ИНН',
         limit: false,
         limitError: 'Диапазин значений от 1 до 1000',
-        start_date: '',
+        start_date: '',  //store.startDate,
         start_dateDitry: false,
-        end_date: '',
+        end_date: '',  //store.endDate,
         end_dateDitry: false,
-        dateError: ' ',
+        dateError: 'Введите корректные данные',
         disableButton: true,
     })
 
@@ -63,6 +64,7 @@ const FormRequest = () => {
         } else {
             setValidation(true)
         }
+
     }, [state])
 
     const updateState = (state) => {
@@ -203,6 +205,7 @@ const FormRequest = () => {
                 ]
             }
         )
+        navigate('/result');
     };
 
 
@@ -212,9 +215,9 @@ const FormRequest = () => {
                 
                 <InputText  label="ИНН компании*"
                             name='inn'
-                            // value={state.inn}
+                            //value={state.inn}
                             errorMesage={state.innError}
-                            defaultValue={store.inn}
+                            // defaultValue={store.inn}
                             onChange={e => innHandler(e)}
                             type="text"
                             placeholder='ИНН - 10 цифр' />
@@ -231,7 +234,7 @@ const FormRequest = () => {
                 <InputText  label="Количество документов в выдаче*"
                             name="limit"
                             errorMesage={state.limitError}
-                            defaultValue={store.limit}
+                            // defaultValue={store.limit}
                             onChange={limitHandler} 
                             type="number" 
                             placeholder="От 1 до 1000" min="1" max="1000" />
@@ -241,21 +244,21 @@ const FormRequest = () => {
 
                     <InputText  name="start_date"
                                 errorMesage={state.dateError ? ' ' : ''}
-                                defaultValue={store.startDate}
+                                // defaultValue={store.startDate}
                                 onChange={e => dataHandler(e)}
                                 type='date'
                                 placeholder='Дата начала' />
                                 
                     <InputText  name="end_date"
-                                errorMesage={state.dateError ? ' ' : ''}
-                                defaultValue={store.endDate}
+                                errorMesage={state.dateError}
+                                // defaultValue={store.endDate}
                                 onChange={e => dataHandler(e)}
                                 type='date'
                                 placeholder='Дата начала' />
 
                 </div>
 
-                {(state.dateError) && <div>{state.dateError}</div>}
+                {/* {(state.dateError) && <div>{state.dateError}</div>} */}
             </div>
             <div className={s.form_right}>
                 <div className={s.checkboxes}>

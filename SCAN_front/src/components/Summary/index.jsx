@@ -1,8 +1,9 @@
 import React, {useContext, useEffect, useState, useRef } from 'react';
 import { combineDataByDate } from './DataProcessing';
-import s from './Summary.module.css'
+
 import "../../public/style/slick.css";
 import "../../public/style/slick-theme.css";
+import s from './Summary.module.css'
 import Slider from "react-slick";
 import useResize from '../Resize/use-resize';
 import { Context } from '@/main'

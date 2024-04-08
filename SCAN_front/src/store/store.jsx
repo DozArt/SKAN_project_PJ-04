@@ -1,8 +1,7 @@
 import { makeAutoObservable } from "mobx";
 import axios from 'axios'
 
-export default class Store {
-    
+class Store {
     baseURL = 'https://gateway.scan-interfax.ru/api/v1'
 
     isAuth = false
@@ -100,8 +99,6 @@ export default class Store {
         makeAutoObservable(this);
     }
 
-    
-
     setFiltersInfo(data) {
         this.eventFiltersInfo = data
     }
@@ -127,7 +124,6 @@ export default class Store {
                 localStorage.setItem("accessToken", accessToken)
                 console.log('Login successful');
                 // Далее вы можете сохранить токен в состоянии приложения или использовать его по вашему усмотрению
-                
             } else {
                 localStorage.setItem("accessToken", accessToken)
                 console.error('Login failed');
@@ -166,3 +162,5 @@ export default class Store {
         }
     }
 }
+
+export default Store;
