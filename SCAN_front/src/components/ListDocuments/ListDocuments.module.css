@@ -1,8 +1,8 @@
 .unit {
     background-color: #fff;
     max-width: 1320px;
-    margin: 0 auto;
-    padding: 60px;
+    margin: 0;
+    padding: 55px var(--padding-value);
 }
 
 .title {
@@ -19,18 +19,11 @@
     display: flex;
     flex-direction: row;
     gap: 38px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 @media screen and (max-width: 1000px) {
-    .ListDocuments {
-        display: flex;
-        flex-direction: column;
-        gap: 38px;
-    }
-    .unit {
-        width: min-347px;
-        padding: 55px 14px;
-    }
     .title {
         font-size: 28px;
     }

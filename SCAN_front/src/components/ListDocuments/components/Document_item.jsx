@@ -14,7 +14,7 @@ function decodeHtml(html) {
     return cleanedContent;
   }
 
-const Rate = (props) => {
+const Rate_item = (props) => {
 
     const [cleanContent, setCleanContent] = useState('');
 
@@ -22,20 +22,28 @@ const Rate = (props) => {
         setCleanContent(cleanHtmlContent(props.content));
     }, [props.content]);
 
+    const tagLabel = props.isTechNews ? "Технические новости" : props.isAnnouncement ? "Анонсы и события" : "Сводки новостей";
+
     return (
         <div className={s.item}>
-            <div>{props.date} Комсомольская правда KP.RU</div>
-            <h5>{props.title}</h5>
-            <div>Тхнические новости</div>
-            <div></div>
-            <p>{cleanContent}</p>
             <div>
-                <Button className={s.rate_button}>Подробнее</Button>
-                <div>{props.wordCount} слова</div>
+                <div className={s.article_info}>
+                    <span className={s.article_date}>{props.date}</span>
+                    <a href={props.url} className={s.article_source} target="_blank">{props.sourceName}</a>
+                </div>
+                <h5 className={s.article_title}>{props.title}</h5>
+                <div className={s.article_tag}>{tagLabel}</div>
+                <img src={props.picture} className={s.article_images} alt="Image article" />
+                <p className={s.article_content}>{cleanContent}</p>
             </div>
-            
+            <div className={s.article_footer}>
+                <form action={props.url} target="_blank">
+                    <Button className={s.rate_button}>Подробнее</Button>
+                </form> 
+                <div className={s.world_count}>{props.wordCount} слова</div>
+            </div>
         </div>
     );
 };
 
-export default Rate;
+export default Rate_item;
