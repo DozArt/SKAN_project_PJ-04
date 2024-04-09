@@ -2,6 +2,9 @@ import { makeAutoObservable } from "mobx";
 import axios from 'axios'
 
 class Store {
+
+    
+
     baseURL = 'https://gateway.scan-interfax.ru/api/v1'
 
     isAuth = false
@@ -22,6 +25,7 @@ class Store {
 
     bodyHistograms = []
     listDocuments = []
+    isLoadingAuthorization = false
 
     setBodyHistograms(value){
         this.bodyHistograms = value
@@ -60,6 +64,10 @@ class Store {
         console.log('setLocal')
     }
 
+    setIsLoadingAuthorization(bool) {
+        this.isLoadingAuthorization = bool
+    }
+
     setCheck(e) {
         const value = e.target.checked
         const name = e.target.name
@@ -89,22 +97,43 @@ class Store {
         }
     }
 
+    
     eventFiltersInfo = {
-        "usedCompanyCount": 0,
-        "companyLimit": 0
+        "usedCompanyCount": -1,
+        "companyLimit": -1
     }
     
-
     constructor() {
         makeAutoObservable(this);
     }
-
-    setFiltersInfo(data) {
+    
+    setEventFiltersInfo(data) {
         this.eventFiltersInfo = data
+    }
+
+    async checkAuth(accessToken) {
+        try {
+            const response = await axios.get(`${this.baseURL}/account/info`, 
+                {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`,
+                        'Content-Type': 'application/json',
+                        Accept: 'application/json',
+                    }
+                }
+            )
+            this.setAuth(true)
+            this.setEventFiltersInfo(await response.data.eventFiltersInfo)
+            console.log('Проверка авторизации с ответом ' + this.eventFiltersInfo)
+        } catch (e) {
+            localStorage.setItem("accessToken", '')
+            console.log(e.response.data.message);
+        }
     }
 
     async handleLogin(login, password) {
         try {
+            this.setIsLoadingAuthorization(true)
             const response = await fetch(`${this.baseURL}/account/login`, {
                 method: 'POST',
                 headers: {
@@ -123,6 +152,7 @@ class Store {
                 this.setAuth(true)
                 localStorage.setItem("accessToken", accessToken)
                 console.log('Login successful');
+                this.checkAuth(accessToken)
                 // Далее вы можете сохранить токен в состоянии приложения или использовать его по вашему усмотрению
             } else {
                 localStorage.setItem("accessToken", accessToken)
@@ -130,6 +160,8 @@ class Store {
             }
         } catch (error) {
             console.error('Error during login:', error);
+        } finally {
+            this.setIsLoadingAuthorization(false);
         }
     };
 
@@ -142,25 +174,7 @@ class Store {
           }
     }
 
-    async checkAuth(accessToken) {
-        try {
-            const response = await axios.get(`${this.baseURL}/account/info`, 
-                {
-                    headers: {
-                        Authorization: `Bearer ${accessToken}`,
-                        'Content-Type': 'application/json',
-                        Accept: 'application/json',
-                    }
-                }
-            )
-            this.setAuth(true)
-            this.setFiltersInfo(response.data.eventFiltersInfo)
-            console.log('Проверка авторизации с ответом ' + this.eventFiltersInfo)
-        } catch (e) {
-            localStorage.setItem("accessToken", '')
-            console.log(e.response.data.message);
-        }
-    }
+    
 }
 
 export default Store;

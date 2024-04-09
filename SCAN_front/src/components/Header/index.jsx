@@ -1,4 +1,4 @@
-import {useContext} from 'react';
+import {useContext, useEffect, useState} from 'react';
 import srcLogo from '../../public/images/a21cf0e37634bf7f262554f86388e0d5.png';
 import Card from './components/Card/Card';
 import s from './Header.module.css'
@@ -12,6 +12,8 @@ import BurgerMenu from './components/BurgerMenu/BurgerMenu';
 
 const Header = () => {
     const {store} = useContext(Context)
+
+    console.log('рисуем компонент')
 
     return (
         <header className={s.header}>

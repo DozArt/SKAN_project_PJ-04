@@ -77,7 +77,8 @@ const FormAuthorization = () => {
 
                     <InputText  label='Пароль:'
                                 typePass='true'
-                                name='password' 
+                                name='password'
+                                type='password'
                                 value={password}
                                 errorMesage={passwordError}
                                 onChange={e => passwordHandler(e)
