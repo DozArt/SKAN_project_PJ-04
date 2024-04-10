@@ -13,8 +13,8 @@ const Menu = ({className}) => {
             {/* <img src={iconMenu} className={s.iconMenu} onClick={() => setMenuActive(!menuActive)}/> */}
             <div className={s.group_menu}>
                 <Link to="/" className={s.item_menu}>Главная</Link>
-                <Link to="/result"className={s.item_menu}>Тарифы</Link>
-                <Link to="/authorization" className={s.item_menu}>FAQ</Link>
+                <Link to="/rates"className={s.item_menu}>Тарифы</Link>
+                <Link to="/faq" className={s.item_menu}>FAQ</Link>
 
             </div>
         </>

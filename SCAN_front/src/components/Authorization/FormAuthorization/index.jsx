@@ -14,16 +14,19 @@ const FormAuthorization = () => {
     const [loginError, setLoginError] = useState('Введите корректные данные')
     const [passwordError, setPasswordError] = useState('Неправильный пароль')
     const [validation, setValidation] = useState(false)
+    const [loginAttemptError, setLoginAttemptError] = useState('');
 
     const{store} = useContext(Context);
 
+    const navigate = useNavigate();
+
     useEffect(() => {
-        if ((loginError || passwordError)) {
+        if ((loginError || passwordError || loginAttemptError)) {
             setValidation(false)
         } else {
             setValidation(true)
         }
-    }, [loginError, passwordError])
+    }, [loginError, passwordError, loginAttemptError])
 
     const emailHandler = (e) => {
         setLogin(e.target.value)
@@ -43,19 +46,23 @@ const FormAuthorization = () => {
             setPasswordError('Неправильный пароль')
         } else {
             setPasswordError('')
+            setLoginAttemptError('');
         }
     }
 
     const handleLogin = async (login, password) => {
         try {
             await store.handleLogin(login, password);
-            navigate('/');
+            if (store.isAuth) {
+                navigate('/');
+            }
         } catch (error) {
-            console.error('Error during login:', error);
+            console.error('Error during login in form:', error);
+            setLoginAttemptError('Неправильный логин или пароль');
         }
     };
 
-    const navigate = useNavigate();
+
 
     return (
         <div className={s.unit}>
@@ -80,7 +87,7 @@ const FormAuthorization = () => {
                                 name='password'
                                 type='password'
                                 value={password}
-                                errorMesage={passwordError}
+                                errorMesage={passwordError || loginAttemptError}
                                 onChange={e => passwordHandler(e)
                     }/>
                     <Button onClick={() => handleLogin(login, password, '/')}

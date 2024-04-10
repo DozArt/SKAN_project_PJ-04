@@ -4,8 +4,6 @@ import s from './style.module.css'
 const InputText = ({label, type, name, onChange, value, defaultValue, errorMesage, placeholder}) => {
 
     const [ditry, setDitry] = useState(false)
-
-
     const blurHandler = (e) => {
         setDitry(true)
     }

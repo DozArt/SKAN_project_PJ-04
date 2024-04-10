@@ -146,7 +146,8 @@ class Store {
                 console.error('Login failed');
             }
         } catch (error) {
-            console.error('Error during login:', error);
+            console.error('Error during login in store:', error);
+            throw error;
         }
     };
 

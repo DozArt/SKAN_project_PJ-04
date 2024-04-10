@@ -24,8 +24,8 @@ const BurgerMenu = ({className}) => {
             </div>
             <div className={s.items_menu}>
                 <Link to="/" className={s.item_menu} onClick={toggleMenu}>Главная</Link>
-                <Link to="/result"className={s.item_menu} onClick={toggleMenu}>Тарифы</Link>
-                <Link to="/authorization" className={s.item_menu} onClick={toggleMenu}>FAQ</Link>
+                <Link to="/rates"className={s.item_menu} onClick={toggleMenu}>Тарифы</Link>
+                <Link to="/faq" className={s.item_menu} onClick={toggleMenu}>FAQ</Link>
             </div>
             <div className={s.bottom_line}>
                 

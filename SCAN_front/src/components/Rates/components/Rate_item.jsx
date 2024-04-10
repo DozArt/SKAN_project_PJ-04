@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 import s from './Rate_item.module.css'
 import Button from '../../Button';
 import { Context } from '@/main';
+import { observer } from 'mobx-react-lite'
 
 const Rate = ({card_details}) => {
     const {store} = useContext(Context)
@@ -49,12 +50,13 @@ const Rate = ({card_details}) => {
                             </li>
                         ))}
                     </ul>
+
                 </div>
-                <Button className={s.rate_button}>Подробнее</Button>
+                <Button className={s.rate_button}>{(activ && store.isAuth ? "Перейти в личный кабинет" : "Подробнее")}</Button>
             </div>
             
         </div>
     );
 };
 
-export default Rate;
+export default observer(Rate);

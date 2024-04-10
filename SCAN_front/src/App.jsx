@@ -15,6 +15,7 @@ import Rates from './components/Rates'
 import WeAreLooking from './components/WeAreLooking'
 import Summary from './components/Summary'
 import ListDocuments from './components/ListDocuments'
+import PageNotFound from './components/PageNotFound'
 
 function App() {
     const {store} = useContext(Context)
@@ -37,7 +38,7 @@ function App() {
                     <Route path="search" element={<Request />} />
                     <Route path="result" element={<><WeAreLooking /><Summary /><ListDocuments /></>} />
                 </Route>
-
+                <Route path="*" element={<PageNotFound />} />
             </Routes>
             <Footer />
         </>

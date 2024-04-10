@@ -1,8 +1,30 @@
-# React + Vite
+# Проект SCAN от школы SkillFactory 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+проект написан на React + Vite 
 
-Currently, two official plugins are available:
+## Установка
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Клонируем проект: `git clone https://github.com/DozArt/SKAN_project_PJ-04.git`
+
+Переходим в дирректорию  `cd SKAN_project_PJ-04/SCAN_front`
+
+Устанавливаем зависимости `npm instal`
+
+Запускаем проект `npm run dev`
+
+## Техническое задание
+
+Макет - https://www.figma.com/file/u3MOjzYnTnirz712GrLbFv/%D0%9C%D0%B0%D0%BA%D0%B5%D1%82-%D0%A1%D0%9A%D0%90%D0%9D
+
+API - https://gateway.scan-interfax.ru/swagger/index.html#/
+
+### Постановка задачи
+Компания «СКАН» разработала новый API для поиска публикаций о компании (юридическом лице) в средствах массовой информации по ИНН. Серверная часть приложения уже готова, ваша задача — разработать клиентскую часть.
+
+### Функциональные требования
+Клиентская часть сервиса состоит из:
+
+- главной страницы,
+- формы авторизации,
+- формы для ввода параметров запроса,
+- страницы с выводом результатов запроса.
