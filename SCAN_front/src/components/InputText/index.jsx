@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import s from './style.module.css'
 
-const InputText = ({label, type, typePass = false, name, onBlur, onChange, value, defaultValue, errorMesage, placeholder}) => {
+const InputText = ({label, type, name, onChange, value, defaultValue, errorMesage, placeholder}) => {
 
     const [ditry, setDitry] = useState(false)
 
@@ -35,18 +35,17 @@ const InputText = ({label, type, typePass = false, name, onBlur, onChange, value
         <div className={(ditry && errorMesage) ? s.error_designation : s.unit}>
 
             {label ? label_output : ''}
-
-            <input 
-                onBlur={e => blurHandler(e)}
-                onChange={onChange}
-                name={name}
-                // value={value}
-                defaultValue={defaultValue}
-                type = {inputType}
-                id={name}
-                placeholder={placeholder}
-            />
-            {ditry && <div className={s.error_state}>{errorMesage}</div>}
+                <input 
+                    onBlur={e => blurHandler(e)}
+                    onChange={onChange}
+                    name={name}
+                    // value={value}
+                    defaultValue={defaultValue}
+                    type = {inputType}
+                    id={name}
+                    placeholder={placeholder}
+                />
+                {ditry && <div id='error' className={s.error_state}>{errorMesage}</div>}
         </div>
     );
 };

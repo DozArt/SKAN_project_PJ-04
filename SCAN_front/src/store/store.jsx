@@ -25,7 +25,6 @@ class Store {
 
     bodyHistograms = []
     listDocuments = []
-    isLoadingAuthorization = false
 
     setBodyHistograms(value){
         this.bodyHistograms = value
@@ -62,10 +61,6 @@ class Store {
     setLocalDataRequest(item, data) {
         localStorage.setItem(`${item}`, data)
         console.log('setLocal')
-    }
-
-    setIsLoadingAuthorization(bool) {
-        this.isLoadingAuthorization = bool
     }
 
     setCheck(e) {
@@ -133,35 +128,25 @@ class Store {
 
     async handleLogin(login, password) {
         try {
-            this.setIsLoadingAuthorization(true)
-            const response = await fetch(`${this.baseURL}/account/login`, {
-                method: 'POST',
+            const response = await axios.post(`${this.baseURL}/account/login`, {
+                login: login,
+                password: password
+            }, {
                 headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    login: login,
-                    password: password,
-                    // Другие параметры аутентификации, если необходимо
-                }),
+                    'Content-Type': 'application/json'
+                }
             });
-    
-            if (response.ok) {
-                const data = await response.json();
-                const accessToken = data.accessToken;
-                this.setAuth(true)
-                localStorage.setItem("accessToken", accessToken)
+            if (response.status === 200) {
+                const accessToken = response.data.accessToken;
+                this.setAuth(true);
+                localStorage.setItem("accessToken", accessToken);
                 console.log('Login successful');
-                this.checkAuth(accessToken)
-                // Далее вы можете сохранить токен в состоянии приложения или использовать его по вашему усмотрению
+                this.checkAuth(accessToken);
             } else {
-                localStorage.setItem("accessToken", accessToken)
                 console.error('Login failed');
             }
         } catch (error) {
             console.error('Error during login:', error);
-        } finally {
-            this.setIsLoadingAuthorization(false);
         }
     };
 

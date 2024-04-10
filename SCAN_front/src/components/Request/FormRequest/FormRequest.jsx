@@ -45,14 +45,14 @@ const FormRequest = () => {
     const [validation, setValidation] = useState(false)
 
     const [state, setState] = useState({
-        inn: '',  //store.inn,
+        inn: '',
         innDitry: false,
         innError: 'Не верный ИНН',
         limit: false,
         limitError: 'Диапазин значений от 1 до 1000',
-        start_date: '',  //store.startDate,
+        start_date: '',
         start_dateDitry: false,
-        end_date: '',  //store.endDate,
+        end_date: '',
         end_dateDitry: false,
         dateError: 'Введите корректные данные',
         disableButton: true,
@@ -99,6 +99,10 @@ const FormRequest = () => {
         }
     }
 
+    const handleTonality = (event) => {
+        const selectedTonality = event.target.value;
+        store.setTonality(selectedTonality);
+    };
 
     const limitHandler = (e) => {
         const limitValue = e.target.value
@@ -147,8 +151,8 @@ const FormRequest = () => {
         store.setBodyHistograms(
             {
                 issueDateInterval: {
-                    startDate: `${store.startDate}T00:00:00+03:00`,  //
-                    endDate: `${store.endDate}T23:59:59+03:00`,  //
+                    startDate: `${store.startDate}T00:00:00+03:00`,
+                    endDate: `${store.endDate}T23:59:59+03:00`,
                 },
                 searchContext: {
                     targetSearchEntitiesContext: {
@@ -157,15 +161,15 @@ const FormRequest = () => {
                                 type: "company",
                                 sparkId: null,
                                 entityId: null,
-                                inn: Number(store.inn),  //
-                                maxFullness: store.maxFullness,  //
-                                inBusinessNews: store.inBusinessNews,  //
+                                inn: Number(store.inn),
+                                maxFullness: store.maxFullness,
+                                inBusinessNews: store.inBusinessNews,
 
                             }
                         ],
-                        onlyMainRole: store.onlyMainRole,  //
-                        tonality: store.tonality,  // store.tonality
-                        onlyWithRiskFactors: store.onlyWithRiskFactors,  //
+                        onlyMainRole: store.onlyMainRole,
+                        tonality: store.tonality,
+                        onlyWithRiskFactors: store.onlyWithRiskFactors,
                         riskFactors: {
                             and: [],
                             or: [],
@@ -190,12 +194,12 @@ const FormRequest = () => {
                     excludedSourceGroups: []
                 },
                 attributeFilters: {
-                    excludeTechNews: store.includeTechNews,  //
-                    excludeAnnouncements: store.includeAnnouncements,  //
-                    excludeDigests: store.includeDigests,  //
+                    excludeTechNews: store.includeTechNews,
+                    excludeAnnouncements: store.includeAnnouncements,
+                    excludeDigests: store.includeDigests,
                 },
                 similarMode: "duplicates",
-                limit: Number(store.limit),  //
+                limit: Number(store.limit),
                 sortType: "issueDate",
                 sortDirectionType: "desc",
                 intervalType: "month",
@@ -212,29 +216,23 @@ const FormRequest = () => {
     return (
         <div className={s.unit}>
             <div className={s.inputs}>
-                
-                <InputText  label="ИНН компании*"
-                            name='inn'
-                            //value={state.inn}
+            <label>ИНН компании*</label>
+                <InputText  name='inn'
                             errorMesage={state.innError}
-                            // defaultValue={store.inn}
                             onChange={e => innHandler(e)}
                             type="text"
                             placeholder='ИНН - 10 цифр' />
                 
                 <label>Тональность</label>
                 
-                <select id="request_tonality" className={s.tonality}>
+                <select id="request_tonality" className={s.tonality} onChange={handleTonality}>
                     <option value="any">Любая</option>
                     <option value="negative">Негативная</option>
-                    <option value="neutral">Нейтральная</option>
                     <option value="positive">Позитивная</option>
                 </select>
-
-                <InputText  label="Количество документов в выдаче*"
-                            name="limit"
+                <label>Количество документов в выдаче*</label>
+                <InputText  name="limit"
                             errorMesage={state.limitError}
-                            // defaultValue={store.limit}
                             onChange={limitHandler} 
                             type="number" 
                             placeholder="От 1 до 1000" min="1" max="1000" />
@@ -244,21 +242,18 @@ const FormRequest = () => {
 
                     <InputText  name="start_date"
                                 errorMesage={state.dateError ? ' ' : ''}
-                                // defaultValue={store.startDate}
                                 onChange={e => dataHandler(e)}
                                 type='date'
                                 placeholder='Дата начала' />
                                 
                     <InputText  name="end_date"
                                 errorMesage={state.dateError}
-                                // defaultValue={store.endDate}
                                 onChange={e => dataHandler(e)}
                                 type='date'
                                 placeholder='Дата начала' />
 
                 </div>
 
-                {/* {(state.dateError) && <div>{state.dateError}</div>} */}
             </div>
             <div className={s.form_right}>
                 <div className={s.checkboxes}>

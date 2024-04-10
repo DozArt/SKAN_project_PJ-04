@@ -13,8 +13,6 @@ import BurgerMenu from './components/BurgerMenu/BurgerMenu';
 const Header = () => {
     const {store} = useContext(Context)
 
-    console.log('рисуем компонент')
-
     return (
         <header className={s.header}>
             <img className={s.logo} src={srcLogo} ali='logo' />
