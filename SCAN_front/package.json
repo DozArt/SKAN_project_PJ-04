@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://dozart.github.io/SKAN_project_PJ-04",
+  "homepage": "https://dozart.github.io/SKAN_project_PJ-04/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
