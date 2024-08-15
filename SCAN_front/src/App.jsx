@@ -29,9 +29,8 @@ function App() {
 
     return (
         <>
-            <Header />
-                
-            <Routes>
+            <Header />    
+            <Routes >
                 <Route path="/" element={<><UnitDescription /><WhyAs /><Rates /></>} />
                 <Route path="/authorization" element={<Authorization />} />
                 <Route path="/" element={<PrivateRoute  />}>

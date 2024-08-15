@@ -13,7 +13,7 @@ export const Context = createContext({
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/SKAN_project_PJ-04">
       <App />
     </BrowserRouter>
     
