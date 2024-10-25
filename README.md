@@ -1,5 +1,7 @@
 # Проект SCAN от школы SkillFactory 
 
+Предпросмотр - https://dozart.github.io/SKAN_project_PJ-04/
+
 проект написан на React + Vite 
 
 ## Установка
